@@ -4,18 +4,18 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                main: "#0D6DA6",
-            },
-            fontFamily: {},
-            backgroundColor: {
-                sku: "#096EA4",
+                orange_light: "#FFA538",
+
             },
             fontFamily: {
-                ExtraBold: "ExtraBold",
-                yekanBold: "yekanBold",
-                artinBlack: "artin_black",
-                artinBold: "artin_bold",
-                artinLight: "artin_light",
+               "artin-bold": "artin-bold",
+               "artin-regular": "artin-regular",
+               "artin-light": "artin-light",
+               "artin-black": "artin-black",
+               "artin-thin": "artin-thin",
+               "estedad-bold": "estedad-bold",
+               "estedad-medium": "estedad-medium",
+               "estedad-exbold": "estedad-exbold",
             },
             aspectRatio: {
                 "6/9": "6 / 9",
@@ -24,6 +24,7 @@ module.exports = {
                 "1200/1800": "1200 / 1800",
             },
             screens: {
+                xs:"300px",
                 sm: "576px",
                 md: "768px",
                 lg: "992px",

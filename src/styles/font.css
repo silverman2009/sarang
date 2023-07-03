@@ -1,0 +1,36 @@
+@font-face{
+    font-family: "artin-bold";
+    src: url("../assets/fonts/ArtinSharpFN\ Bold.ttf");
+}
+@font-face{
+    font-family: "artin-regular";
+    src: url("../assets/fonts/ArtinSharpFN\ Regular.ttf");
+}
+@font-face{
+    font-family: "artin-light";
+    src: url("../assets/fonts/ArtinSharpFN\ Light.ttf");
+}
+@font-face{
+    font-family: "artin-black";
+    src: url("../assets/fonts/ArtinSharpFN\ Black.ttf");
+}
+@font-face{
+    font-family: "artin-thin";
+    src: url("../assets/fonts/ArtinSharpFN\ Thin.ttf");
+}
+@font-face{
+    font-family: "estedad-bold";
+    src: url("../assets/fonts/Estedad-Bold.ttf");
+}
+@font-face{
+    font-family: "estedad-medium";
+    src: url("../assets/fonts/Estedad-Medium.ttf");
+}
+@font-face{
+    font-family: "estedad-regular";
+    src: url("../assets/fonts/Estedad-Regular.ttf");
+}
+@font-face{
+    font-family: "estedad-exbold";
+    src: url("../assets/fonts/Estedad-ExtraBold.ttf");
+}

@@ -51,6 +51,7 @@ const useVerifyAuth = () => {
             removeCookies("jwt", { path: "/" });
             // removeUser();
         }
+    
     }, [cookies.token, cookies.jwt]);
 };
 

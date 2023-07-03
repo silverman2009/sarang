@@ -1,5 +1,5 @@
 import GlobalContextProvider from "@/context/GlobalContextProvider";
-import "./globals.css";
+import "@/styles/globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (

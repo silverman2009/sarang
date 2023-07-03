@@ -1,0 +1,30 @@
+@import url("./font.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+    body {
+        direction: rtl;
+    }
+}
+
+@layer components {
+    .layout{
+        @apply w-[85%] mx-auto
+    }
+    .bg_line{
+        @apply relative before:absolute before:-z-10 before:-bottom-10 after:right-0 after:-top-20 before:bg-[url('../assets/images/bg_line_bottom.svg')] before:w-full before:h-[200px] after:absolute after:w-full after:h-[200px] after:bg-[url('../assets/images/bg_line.svg')] -z-10
+    }
+}
+
+@layer utilities {
+    .bg_header {
+        background: radial-gradient(69.98% 105.16% at 50.00% 50.00%, #FAA530 0%, #F57810 100%);
+    }
+
+    .ltr{
+        direction: ltr;
+    }
+}
