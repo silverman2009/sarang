@@ -7,7 +7,7 @@ import Logo from "@/assets/images/logo.svg"
 const Getotp = () => {
     return (
 
-        <div className='rounded-b-[26px] shadow-md text-white bg_header bg_line h-fit flex flex-col py-10 justify-center items-center'>
+        <div className='rounded-b-[26px] z-[9999] shadow-md text-white bg_header bg_line h-fit flex flex-col py-10 justify-center items-center'>
             <div className='w-[85%] mx-auto'>
                 <Image className='mx-auto' src={Logo} alt="لوگو" />
                 <div className='pt-5 flex flex-col gap-4 justify-center items-center'>

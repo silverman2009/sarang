@@ -19,7 +19,7 @@ const VerifyOtp = () => {
                         <Image className='w-12 h-12' src={Logo} alt="" />
                         <p className='font-artin-regular text-xl'>سارنگ</p>
                     </div>
-                    <button onClick={() => router.back()}>
+                    <button className='z-[9999]' onClick={() => router.back()}>
                         <BsArrowLeftShort size={34} />
                     </button>
                 </div>
