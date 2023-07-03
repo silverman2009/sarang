@@ -32,7 +32,6 @@ const VerifyOtp = () => {
                 <p className='text-success font-artin-regular'>حساب به شماره وارد شده یافت شد.</p>
             </div>
             <div className='layout'>
-
                 <Button classBtn='mb-4 bg-[#464646] text-white' name='تائید کد' />
             </div>
         </div>
