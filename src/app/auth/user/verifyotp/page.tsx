@@ -2,9 +2,11 @@ import Image from 'next/image'
 import React from 'react'
 import Logo from "@/assets/images/logo.svg"
 import { BsArrowLeftShort } from "react-icons/bs"
-import { Phone_icon, Warr_iocn } from '@/components/global/icons'
+import { Edit_icon, Phone_icon, Warr_iocn } from '@/components/global/icons'
 import Button from '@/components/common/Button'
 import VerifyOtpCom from "@/components/auth/VerifyOtp"
+import Timer from '@/components/common/Timer'
+import Link from 'next/link'
 const VerifyOtp = () => {
     return (
         <div className='flex flex-col justify-between h-screen'>
@@ -25,6 +27,13 @@ const VerifyOtp = () => {
                         <p className='font-artin-regular text-lg text-black'>لطفا کد ارسال شده را وارد کنید</p>
                     </div>
                     <VerifyOtpCom />
+                    <div className='flex justify-between items-center mt-5'>
+                        <Timer />
+                        <Link className='flex items-center gap-1' href="/auth/user/signin">
+                            <Edit_icon fill='#F67D14' />
+                            <p className='font-artin-regular text-[12px] text-orange_light'>تغیر شماره تلفن</p>
+                        </Link>
+                    </div>
                 </div>
             </div>
             <div className='flex justify-center items-center flex-col'>
