@@ -14,7 +14,7 @@ const useHandleCookies = () => {
             delete axios.defaults.headers.common["Authorization"];
             removeCookies("token", { path: "/" });
             removeCookies("jwt", { path: "/" });
-            removeUser();
+            // removeUser();
             push("/auth/signin");
         }
     }, [cookies.token]);

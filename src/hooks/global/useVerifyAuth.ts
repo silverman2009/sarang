@@ -2,7 +2,6 @@ import axios from "../../services/utils/axios";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import useAuthStore from "../../stores/auth-store";
-import useLocalStorage from "../common/useLocalStorage";
 
 const useVerifyAuth = () => {
     const setAuthLoading = useAuthStore((s) => s.setAuthLoading);
@@ -50,7 +49,7 @@ const useVerifyAuth = () => {
             delete axios.defaults.headers.common["Authorization"];
             removeCookies("token", { path: "/" });
             removeCookies("jwt", { path: "/" });
-            removeUser();
+            // removeUser();
         }
     }, [cookies.token, cookies.jwt]);
 };
