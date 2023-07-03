@@ -4,6 +4,7 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                success:"#19B500",
                 orange_light: "#FFA538",
 
             },

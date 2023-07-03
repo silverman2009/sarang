@@ -1,0 +1,23 @@
+.ReactInputVerificationCode__container {
+    @apply flex !flex-row-reverse !justify-between !w-full;
+}
+
+.ReactInputVerificationCode__container>div {
+    box-shadow: none !important;
+    border: 2px solid #e1e1e1 !important;
+    @apply !w-[56px] !h-[56px] font-artin-bold flex justify-center items-center rounded-xl relative bg-[#f7f7f7] after:w-6 after:h-[1.5px] after:bg-gray-200 after:absolute after:top-1/2 after:left-1/2 after:-translate-x-1/2 after:-translate-y-1/2;
+}
+
+.ReactInputVerificationCode__container >div.is-filled {
+    @apply font-artin-bold after:hidden !border-transparent bg-orange_light text-white 
+}
+
+.ReactInputVerificationCode__container >div.is-active {
+    @apply !border-orange_light text-orange_light !bg-white !shadow-none 
+}
+
+
+
+.ReactInputVerificationCode__container .ReactInputVerificationCode__input {
+    @apply !w-0
+}

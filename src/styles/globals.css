@@ -1,9 +1,13 @@
-@import url("./font.css");
+@import url("./font.css"); 
+@import url("./auth.css"); 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
+*{
+    -webkit-tap-highlight-color: transparent !important;
+}
 @layer base {
     body {
         direction: rtl;
@@ -16,6 +20,15 @@
     }
     .bg_line{
         @apply relative before:absolute before:-z-10 before:-bottom-10 after:right-0 after:-top-20 before:bg-[url('../assets/images/bg_line_bottom.svg')] before:w-full before:h-[200px] after:absolute after:w-full after:h-[200px] after:bg-[url('../assets/images/bg_line.svg')] -z-10
+    }
+
+    .container_header_signup{
+        @apply relative before:absolute before:right-0 before:-bottom-28 before:bg-[url('../assets/images/bg_line_bottom.svg')] before:w-full before:h-[200px]
+    }
+
+    .container_verify_otp{
+        @apply relative before:absolute before:right-0 before:-top-28 before:bg-[url('../assets/images/bg_line_block.svg')] before:w-full before:h-[200px]
+
     }
 }
 
