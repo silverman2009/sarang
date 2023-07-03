@@ -1,3 +1,4 @@
+"use client";
 import Image from 'next/image'
 import React from 'react'
 import Logo from "@/assets/images/logo.svg"
@@ -7,7 +8,9 @@ import Button from '@/components/common/Button'
 import VerifyOtpCom from "@/components/auth/VerifyOtp"
 import Timer from '@/components/common/Timer'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
 const VerifyOtp = () => {
+    const router = useRouter()
     return (
         <div className='flex flex-col justify-between h-screen'>
             <div className='bg_header text-white rounded-b-[26px] overflow-hidden container_header_signup'>
@@ -16,7 +19,9 @@ const VerifyOtp = () => {
                         <Image className='w-12 h-12' src={Logo} alt="" />
                         <p className='font-artin-regular text-xl'>سارنگ</p>
                     </div>
-                    <BsArrowLeftShort size={34} />
+                    <button onClick={() => router.push("/auth/user/signin")}>
+                        <BsArrowLeftShort size={34} />
+                    </button>
                 </div>
             </div>
 

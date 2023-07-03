@@ -1,15 +1,22 @@
-// import rtlPlugin from "stylis-plugin-rtl";
-// import { CacheProvider } from "@emotion/react";
-// import createCache from "@emotion/cache";
-// import { prefixer } from "stylis";
-// import { ReactNode } from "react";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import rtlPlugin from "stylis-plugin-rtl";
+import { prefixer } from "stylis";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
-// // Create rtl cache
-// const cacheRtl = createCache({
-//     key: "muirtl",
-//     stylisPlugins: [prefixer, rtlPlugin],
-// });
+const cacheRtl = createCache({
+    key: "muirtl",
+    stylisPlugins: [prefixer, rtlPlugin],
+});
 
-// export function RtlProvider({ children }: { children: ReactNode }) {
-//     return <CacheProvider value={cacheRtl}>{children}</CacheProvider>;
-// }
+const theme = createTheme({
+    direction: "rtl",
+});
+
+export const MuiRtl = ({ children }: { children: React.ReactNode }) => {
+    return (
+        <CacheProvider value={cacheRtl}>
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+        </CacheProvider>
+    );
+};

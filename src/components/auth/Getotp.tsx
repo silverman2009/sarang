@@ -19,7 +19,7 @@ const Getotp = () => {
                     </div>
                     <h5 className='font-artin-black text-3xl -mt-1'>خوش اومدین</h5>
                     <div className='mt-14 w-full'>
-                        <Input ltr classInput='border-[0.1rem] border-white bg-white/40 text-white' icon={Phone} placeholder='لطفا شماره تماس خود را وارد کنید' />
+                        <Input placeholderColor='[#fff]' ltr classInput='border-[0.1rem] border-white bg-white/40 text-white' icon={Phone} placeholder='لطفا شماره تماس خود را وارد کنید' />
                     </div>
                 </div>
             </div>

@@ -1,11 +1,12 @@
 import React from 'react'
 interface Props{
     name?:string
-    classBtn?:string
+    classBtn?:string;
+    onClick?:()=>void
 }
-const Button = ({name,classBtn}:Props) => {
+const Button = ({name,classBtn,onClick}:Props) => {
   return (
-    <button className={`w-full font-artin-regular h-[48px] text-inherit rounded-lg ${classBtn}`}>{name}</button>
+    <button onClick={onClick} className={`w-full min-w-[100px] font-artin-regular h-[48px] text-inherit rounded-lg ${classBtn}`}>{name}</button>
   )
 }
 
