@@ -53,18 +53,32 @@ function BpRadio(props: RadioProps) {
     );
 }
 
-export default function CustomRadioButton() {
+interface Props {
+    formik: any;
+    name: string;
+    list: {
+        label: string;
+        value: string;
+    }[]
+}
+export default function CustomRadioButton({ formik, name, list }: Props) {
     return (
         <FormControl>
             <span className='font-artin-regular block mb-1 pr-1 text-[#2F2F2F]' >لطفا جنسیت خود را مشخص کنید</span>
             <RadioGroup
                 defaultValue="female"
                 aria-labelledby="demo-customized-radios"
-                name="customized-radios"
+                name={name}
             >
-                <FormControlLabel value="female" control={<BpRadio />} label={<span className="font-artin-regular">مرد</span>} />
-                <FormControlLabel value="male" control={<BpRadio />} label={<span className="font-artin-regular">زن</span>} />
+                {
+                    list.map((item, i) => (
+                        <FormControlLabel key={i} value={item.value} control={<BpRadio  onChange={()=> formik.setFieldValue(name, item.value)}/>} label={<span className="font-artin-regular">{item.label}</span>} />
+                    ))
+                }
             </RadioGroup>
+            <span className='block font-artin-light mt-[1px] text-[11px] text-red-500 pr-1'>
+                {formik.touched[name!] && formik.errors[name!] ? formik.errors[name!] : null}
+            </span>
         </FormControl>
     );
 }

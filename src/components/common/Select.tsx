@@ -30,7 +30,7 @@ export default function Select({ label, className, list, name, formik }: PropsSe
         const {
             target: { value },
         } = event;
-        // formik.setFieldValue(name, value);
+        formik.setFieldValue(name, value);
     };
 
     return (
@@ -39,10 +39,19 @@ export default function Select({ label, className, list, name, formik }: PropsSe
                 <label className='font-artin-regular block mb-1 pr-1 text-[#2F2F2F]'>{label}</label>
                 <SelectMui
                     sx={{
-                        border: "0px",
+                        boxShadow: "none",
+                        ".MuiOutlinedInput-notchedOutline": { border: 0 },
+                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
+                        {
+                            border: 0,
+                        },
+                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                        {
+                            border: 0,
+                        },
                     }}
                     IconComponent={IoIosArrowDown}
-                    // value={formik.values[name!]}
+                    value={formik.values[name!]}
                     onChange={handleChange}
                     input={<OutlinedInput />}
                     renderValue={(selected) => {
@@ -62,7 +71,7 @@ export default function Select({ label, className, list, name, formik }: PropsSe
                     ))}
                 </SelectMui>
                 <span className="font-es-regular text-[10px] pr-1 inline-block text-red-600 py-1">
-                    {/* {formik.touched[name!] && formik.errors[name!] ? formik.errors[name!] : null} */}
+                    {formik.touched[name!] && formik.errors[name!] ? formik.errors[name!] : null}
                 </span>
             </FormControl>
         </div>

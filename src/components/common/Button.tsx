@@ -6,7 +6,7 @@ interface Props{
 }
 const Button = ({name,classBtn,onClick}:Props) => {
   return (
-    <button onClick={onClick} className={`w-full min-w-[100px] font-artin-regular h-[48px] text-inherit rounded-lg ${classBtn}`}>{name}</button>
+    <button onClick={onClick} className={`w-full min-w-[100px] z-[9999] font-artin-regular h-[48px] text-inherit rounded-lg ${classBtn}`}>{name}</button>
   )
 }
 
