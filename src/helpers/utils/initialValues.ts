@@ -1,10 +1,16 @@
 export const initialValuesSignUpUser = {
     phone: "",
     password: "",
-    resPassword: "",
+    repPassword: "",
     firstName: "",
     lastName: "",
     sex: "",
-    city: "",
-    state: ""
-}
+    city: {
+        _id: "",
+        city: ""
+    },
+    state: {
+        _id: "",
+        state: ""
+    },
+};

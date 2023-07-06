@@ -1,13 +1,12 @@
-"use client";
-import React from 'react'
+import React from "react";
 import Lottie from "lottie-react";
-import Car from "@/assets/images/car.json"
+import Car from "@/assets/images/car.json";
 const LottieFiles = () => {
     return (
-        <div className='mt-14'>
-           <Lottie animationData={Car}/>
+        <div className="mt-14">
+            <Lottie animationData={Car} />
         </div>
-    )
-}
+    );
+};
 
-export default LottieFiles
+export default LottieFiles;

@@ -1,5 +1,6 @@
 @import url("./font.css");
 @import url("./auth.css");
+@import url("./common.css");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

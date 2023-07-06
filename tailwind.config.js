@@ -4,19 +4,18 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                success:"#19B500",
+                success: "#19B500",
                 orange_light: "#FFA538",
-
             },
             fontFamily: {
-               "artin-bold": "artin-bold",
-               "artin-regular": "artin-regular",
-               "artin-light": "artin-light",
-               "artin-black": "artin-black",
-               "artin-thin": "artin-thin",
-               "estedad-bold": "estedad-bold",
-               "estedad-medium": "estedad-medium",
-               "estedad-exbold": "estedad-exbold",
+                "artin-bold": "artin-bold",
+                "artin-regular": "artin-regular",
+                "artin-light": "artin-light",
+                "artin-black": "artin-black",
+                "artin-thin": "artin-thin",
+                "estedad-bold": "estedad-bold",
+                "estedad-medium": "estedad-medium",
+                "estedad-exbold": "estedad-exbold",
             },
             aspectRatio: {
                 "6/9": "6 / 9",
@@ -25,7 +24,7 @@ module.exports = {
                 "1200/1800": "1200 / 1800",
             },
             screens: {
-                xs:"300px",
+                xs: "300px",
                 sm: "576px",
                 md: "768px",
                 lg: "992px",

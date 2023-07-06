@@ -1,79 +1,57 @@
-import OutlinedInput from "@mui/material/OutlinedInput";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import SelectMui, { SelectChangeEvent } from "@mui/material/Select";
-import { IoIosArrowDown } from "react-icons/io";
-interface PropsSelect {
-    placeholder?: string;
+import React from 'react'
+import ReactSelect from 'react-select'
+import { GetOptionLabel } from "react-select/dist/declarations/src"
+interface Props {
+    options: any[];
+    formik: any;
+    name: string;
+    getOptionLabel?: GetOptionLabel<any> | undefined
+    getOptionValue?: GetOptionLabel<any> | undefined;
     label?: string;
-    error?: string;
-    className?: string;
-    list?: string[];
-    name?: string;
-    formik?: any;
+    isLoading?: boolean;
+    onChange?: (value: any) => void;
 }
-
-const ITEM_HEIGHT = 48;
-const ITEM_PADDING_TOP = 10;
-const MenuProps = {
-    PaperProps: {
-        style: {
-            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-            width: 250,
-            zIndex: 9999,
-        },
-    },
-};
-
-export default function Select({ label, className, list, name, formik }: PropsSelect) {
-    const handleChange = (event: SelectChangeEvent) => {
-        const {
-            target: { value },
-        } = event;
-        formik.setFieldValue(name, value);
-    };
-
+const Select = ({ options, formik, name, getOptionValue, getOptionLabel, label, isLoading, onChange }: Props) => {
+    const styles = {
+        control: (base: any, state: any) => ({
+            ...base,
+            border: state.isFocused ? 0 : formik.touched[name!]?._id && formik.errors[name!]?._id ? "1px solid #ef4444" : 0,
+            backgroundColor: "#EFF2F6",
+            height: "52px",
+            borderRadius: "8px",
+            fontFamily: "artin-regular",
+            // This line disable the blue border
+            boxShadow: state.isFocused ? 0 : 0,
+            '&:hover': {
+                border: state.isFocused ? 0 : 0
+            },
+            options: (styles: any) => ({
+                ...styles,
+                color: 'red',
+            }),
+        })
+    }
     return (
-        <div className={`${className}`}>
-            <FormControl className="!w-full">
-                <label className='font-artin-regular block mb-1 pr-1 text-[#2F2F2F]'>{label}</label>
-                <SelectMui
-                    sx={{
-                        boxShadow: "none",
-                        ".MuiOutlinedInput-notchedOutline": { border: 0 },
-                        "&.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline":
-                        {
-                            border: 0,
-                        },
-                        "&.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                        {
-                            border: 0,
-                        },
-                    }}
-                    IconComponent={IoIosArrowDown}
-                    value={formik.values[name!]}
-                    onChange={handleChange}
-                    input={<OutlinedInput />}
-                    renderValue={(selected) => {
-                        if (selected?.length === 0) {
-                            return <p className="font-estedad-medium text-[11px]">انتخاب کنید</p>;
-                        }
+        <div>
+            {label && <label className="font-artin-regular block mb-1 pr-1 text-[#2F2F2F]">{label}</label>}
+            <ReactSelect
+                value={formik.values[name]}
+                isLoading={isLoading}
+                placeholder={<span className='!text-gray-400'>انتخاب کنید</span>}
+                styles={styles}
+                options={options}
+                getOptionLabel={getOptionLabel}
+                getOptionValue={getOptionValue}
+                onChange={onChange ? onChange : (value) => formik.setFieldValue(name, value)}
+                name={name}
+                noOptionsMessage={() => <span>لیست خالی است</span>}
 
-                        return selected;
-                    }}
-                    MenuProps={MenuProps}
-                    inputProps={{ "aria-label": "Without label" }}
-                >
-                    {list?.map((name) => (
-                        <MenuItem key={name} value={name}>
-                            <span className="font-estedad-bold px-3 !text-[12px]">{name}</span>
-                        </MenuItem>
-                    ))}
-                </SelectMui>
-                <span className="font-es-regular text-[10px] pr-1 inline-block text-red-600 py-1">
-                    {formik.touched[name!] && formik.errors[name!] ? formik.errors[name!] : null}
-                </span>
-            </FormControl>
+            />
+            <span className="block font-artin-light mt-[1px] text-[11px] text-red-500 pr-1">
+                {formik.touched[name!]?._id && formik.errors[name!]?._id ? formik.errors[name!]?._id : null}
+            </span>
         </div>
-    );
+    )
 }
+
+export default Select

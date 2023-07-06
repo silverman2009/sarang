@@ -6,7 +6,6 @@ import formatUnicorn from "format-unicorn/safe";
 import { GetRouteProps } from "../../types/services";
 import axios from "../../services/utils/axios";
 
-
 export const logRequestedUrl = ({ baseURL, method, url }: AxiosRequestConfig) => {
     if (baseURL && inDevEnvironment) {
         const fullUrl = baseURL + url;
@@ -30,7 +29,6 @@ export const generateFormData = (obj: object) => {
     });
     return { data, headers: { "Content-Type": "multipart/form-data" } };
 };
-
 
 export const generateFormDataList = (obj: object[]) => {
     const data = new FormData();
@@ -90,4 +88,3 @@ export const setCookie = async (cookies: SetCookieProps) => {
         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
 };
-
