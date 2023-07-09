@@ -3,7 +3,7 @@ import React from 'react'
 
 const qr_code = () => {
     return (
-        <Qr />
+        <Qr type={"QR"} onResult={(res:any) => alert(res)} />
     )
 }
 
