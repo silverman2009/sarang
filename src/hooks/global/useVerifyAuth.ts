@@ -4,27 +4,27 @@ import { useCookies } from "react-cookie";
 import useAuthStore from "../../stores/auth-store";
 
 const useVerifyAuth = () => {
-    const setAuthLoading = useAuthStore((s) => s.setAuthLoading);
-    const setUser = useAuthStore((s) => s.setUser);
-    const removeUser = useAuthStore((s) => s.removeUser);
+    // const setAuthLoading = useAuthStore((s) => s.setAuthLoading);
+    // const setUser = useAuthStore((s) => s.setUser);
+    // const removeUser = useAuthStore((s) => s.removeUser);
     const [cookies, setCookies, removeCookies] = useCookies(["token", "jwt"]);
     const getUser = () => {};
     useEffect(() => {
         if (cookies.token && cookies.jwt) {
             const verifyUser = async () => {
-                setAuthLoading(true);
+                // setAuthLoading(true);
                 axios.defaults.headers.common["Authorization"] = `${cookies.token}`;
                 try {
                     const { status, user }: any = await getUser();
                     if (status) {
-                        setUser({ user });
+                        // setUser({ user });
                     }
                 } catch (error) {
                     delete axios.defaults.headers.common["Authorization"];
                     removeCookies("token", { path: "/" });
                     removeCookies("jwt", { path: "/" });
                 } finally {
-                    setAuthLoading(false);
+                    // setAuthLoading(false);
                 }
 
                 verifyUser();
