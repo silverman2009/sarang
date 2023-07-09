@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactSelect from 'react-select'
+import ReactSelect, { components } from 'react-select'
 import { GetOptionLabel } from "react-select/dist/declarations/src"
 interface Props {
     options: any[];
@@ -10,8 +10,15 @@ interface Props {
     label?: string;
     isLoading?: boolean;
     onChange?: (value: any) => void;
+    isDisabled?:boolean
+
+
+
 }
-const Select = ({ options, formik, name, getOptionValue, getOptionLabel, label, isLoading, onChange }: Props) => {
+const Select = ({ options, formik, name, getOptionValue,isDisabled, getOptionLabel, label, isLoading, onChange }: Props) => {
+    const Input = ({ ...rest }) =>
+        // @ts-ignore
+        <components.Input {...rest} autoComplete={'nope'} />
     const styles = {
         control: (base: any, state: any) => ({
             ...base,
@@ -45,6 +52,7 @@ const Select = ({ options, formik, name, getOptionValue, getOptionLabel, label, 
                 onChange={onChange ? onChange : (value) => formik.setFieldValue(name, value)}
                 name={name}
                 noOptionsMessage={() => <span>لیست خالی است</span>}
+                isDisabled={isDisabled}
 
             />
             <span className="block font-artin-light mt-[1px] text-[11px] text-red-500 pr-1">

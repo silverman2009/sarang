@@ -18,6 +18,10 @@ export const getActivationCodeSignup = async (phone: string) => {
     const url = getRoute({ route: `${routes.auth.getCodeSignup}/${phone}` });
     return await client<string>({ url, method: "GET" });
 };
+export const getActivationCodeSignin = async (phone: string) => {
+    const url = getRoute({ route: `${routes.auth.getCodeSignin}/${phone}` });
+    return await client<string>({ url, method: "GET" });
+};
 
 export const checkCode = async (data: CheckCode) => {
     const url = getRoute({ route: `${routes.auth.checkCode}` });

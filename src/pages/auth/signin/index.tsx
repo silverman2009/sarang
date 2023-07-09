@@ -29,7 +29,7 @@ const Signin = () => {
                     name="ارسال کد تائید"
                 />
                 <p className="border-b border-dashed border-[#e4e4e4]"></p>
-                <Link href="/auth/user/signup">
+                <Link href="/auth/signup/get-otp">
                     <div className="flex gap-1 text-gray-400 font-estedad-medium text-[12px] justify-center items-center">
                         <p>حساب کاربری ندارید؟</p>
                         ثبت‌نام

@@ -7,7 +7,7 @@ import Warr from "@/assets/images/warr.svg";
 import { useFormik } from 'formik'
 import { initialValuesGetOtp } from '@/helpers/utils/initialValues'
 import { validationSchemaGetOtp } from '@/helpers/utils/validation/auth'
-import useGetCodeActivationSignupQuery from '@/hooks/query/auth/useGetCodeActivationSignupQuery'
+import useGetCodeActivationQuery from '@/hooks/query/auth/useGetCodeActivationQuery'
 import Lottie from "lottie-react";
 import Loading from "@/assets/images/loading.json"
 import { toEnglishNumber } from '@/helpers/utils/toFarsiNumber'
@@ -22,7 +22,7 @@ const GetOtpSignup = () => {
       refetch()
     },
   });
-  const { refetch, isLoading, isError, error } = useGetCodeActivationSignupQuery(toEnglishNumber(formik.values.phone))
+  const { refetch, isLoading, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone), true)
   return (
     <>
       <div className="h-screen flex flex-col justify-between">
@@ -49,7 +49,7 @@ const GetOtpSignup = () => {
             name="ارسال کد تائید"
           />
           <p className="border-b border-dashed border-[#e4e4e4]"></p>
-          <Link href="/auth/user/signin">
+          <Link href="/auth/signin">
             <div className="flex gap-1 text-gray-400 font-estedad-medium text-[12px] justify-center items-center">
               <p>قبلا ثبت نام کرده اید؟</p>
               ورود

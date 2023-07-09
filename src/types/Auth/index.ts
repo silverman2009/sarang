@@ -12,5 +12,5 @@ export type SignupUser = {
 
 export type CheckCode = {
     Phone: string;
-    Code: string
+    Code: number
 }

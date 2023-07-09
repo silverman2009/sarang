@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "@/assets/images/logo.svg";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { Edit_icon, Phone_icon, Warr_iocn } from "@/components/global/icons";
@@ -14,6 +14,7 @@ import useVerifyCodeMutation from "@/hooks/mutation/auth/useVerifyCodeMutation";
 import useAuthStore from "@/stores/auth-store";
 import Lottie from "lottie-react";
 import Loading from "@/assets/images/loading.json"
+import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 const VerifyOtp = () => {
     const { phone } = useAuthStore()
     const { mutate, isError, error, isLoading } = useVerifyCodeMutation()
@@ -22,9 +23,16 @@ const VerifyOtp = () => {
         initialValues: initialValuesCheckCode,
         validationSchema: validationSchemaCheckCode,
         onSubmit: (values) => {
-            mutate({ Code: values.Code, Phone: phone })
+            mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone) })
         }
+
+
     })
+
+    useEffect(() => {
+        if (!phone) return router.back()
+    }, [])
+
     return (
         <div className="flex flex-col justify-between h-screen">
             <div className="bg_header text-white rounded-b-[26px] overflow-hidden container_header_signup">
@@ -58,9 +66,9 @@ const VerifyOtp = () => {
             {
                 isError &&
                 <div className="flex justify-center items-center flex-col">
-                    <Warr_iocn fill="#19B500" />
+                    <Warr_iocn fill="#" />
                     {/* @ts-ignore */}
-                    <p className="text-success font-artin-regular">{error.response?.data?.Message}</p>
+                    <p className="text-red-500 font-artin-regular">{error.response?.data?.Message}</p>
                 </div>
             }
 
