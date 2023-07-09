@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Html5Qrcode } from "html5-qrcode";
-const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
-const brConfig = { fps: 10, qrbox: { width: 300, height: 150 } };
+const qrConfig = { fps: 10, qrbox: { width: 400, height: 400 } };
+const brConfig = { fps: 10, qrbox: { width: 400, height: 350 } };
 let html5QrCode:any;
 const Html5QrcodePlugin = (props: any) => {
     useEffect(() => {
@@ -37,7 +37,7 @@ const Html5QrcodePlugin = (props: any) => {
 
     return (
         <div style={{ position: "relative" }}>
-            <div id="reader"/>
+            <div className='' id="reader"/>
             <button onClick={() => handleClickAdvanced()}>
                 click pro {props.type}
             </button>
