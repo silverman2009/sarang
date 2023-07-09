@@ -10,14 +10,7 @@ const Qr = () => {
     };
     return (
         <>
-            <Html5QrcodePlugin
-                fps={10}
-                qrbox={250}
-                disableFlip={false}
-                qrCodeSuccessCallback={onNewScanResult}
-                
-            />
-            <ResultContainerPlugin results={decodedResults} />
+            <Html5QrcodePlugin />
         </>
     )
 }

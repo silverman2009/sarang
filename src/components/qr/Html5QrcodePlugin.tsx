@@ -1,60 +1,48 @@
-import { Html5Qrcode } from 'html5-qrcode';
 import { useEffect } from 'react';
-
-const qrcodeRegionId = "html5qr-code-full-region";
-
-// Creates the configuration object for Html5QrcodeScanner.
-const createConfig = (props: any) => {
-    let config: any = {};
-    if (props.fps) {
-        config.fps = props.fps;
-    }
-    if (props.qrbox) {
-        config.qrbox = props.qrbox;
-    }
-    if (props.aspectRatio) {
-        config.aspectRatio = props.aspectRatio;
-    }
-    if (props.disableFlip !== undefined) {
-        config.disableFlip = props.disableFlip;
-    }
-    return config;
-};
-
+import { Html5Qrcode } from "html5-qrcode";
+const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
+const brConfig = { fps: 10, qrbox: { width: 300, height: 150 } };
+let html5QrCode:any;
 const Html5QrcodePlugin = (props: any) => {
     useEffect(() => {
-        Html5Qrcode.getCameras().then((devices) => {
-            if (devices && devices.length) {
-                var cameraId = devices[0].id;
-                // .. use this to start scanning.
-            }
-        }).catch(()=>{
-            console.log("erorrrrrrrrrrrrrrrrrrr")
-        })
-    }
-        , [])
-
-    // useEffect(() => {
-    //     // when component mounts
-    //     const config = createConfig(props);
-    //     const verbose = props.verbose === true;
-    //     // Suceess callback is required.
-    //     if (!(props.qrCodeSuccessCallback)) {
-    //         throw "qrCodeSuccessCallback is required callback.";
-    //     }
-    //     const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
-    //     html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
-
-    //     // cleanup function when component will unmount
-    //     return () => {
-    //         html5QrcodeScanner.clear().catch(error => {
-    //             console.error("Failed to clear html5QrcodeScanner. ", error);
-    //         });
-    //     };
-    // }, []);
+        html5QrCode = new Html5Qrcode("reader");
+      }, []);
+    
+      const handleClickAdvanced = () => {
+        const qrCodeSuccessCallback = (decodedText:any) => {
+          props.onResult(decodedText);
+          handleStop();
+        };
+        html5QrCode.start(
+          { facingMode: "environment" },
+          props.type === "QR" ? qrConfig : brConfig,
+          qrCodeSuccessCallback
+        );
+      };
+    
+      const handleStop = () => {
+        try {
+          html5QrCode
+            .stop()
+            .then((res:any) => {
+              html5QrCode.clear();
+            })
+            .catch((err:any) => {
+              console.log(err.message);
+            });
+        } catch (err) {
+          console.log(err);
+        }
+      };
 
     return (
-        <div id={qrcodeRegionId} />
+        <div style={{ position: "relative" }}>
+            <div id="reader"/>
+            <button onClick={() => handleClickAdvanced()}>
+                click pro {props.type}
+            </button>
+            <button onClick={() => handleStop()}>stop pro</button>
+        </div>
     );
 };
 
