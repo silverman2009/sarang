@@ -45,12 +45,12 @@ const ResultContainerTable = ({ data }:any) => {
 const ResultContainerPlugin = (props:any) => {
     const results = filterResults(props.results);
     return (
-        <div className='Result-container'>
-            <div className='Result-header'>Scanned results ({results.length})</div>
-            <div className='Result-section'>
+        <>
+            {/* <div className='Result-header'>Scanned results ({results.length})</div> */}
+            {/* <div className='Result-section'>
                 <ResultContainerTable data={results} />
-            </div>
-        </div>
+            </div> */}
+        </>
     );
 };
 

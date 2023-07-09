@@ -1,11 +1,11 @@
-import { Html5QrcodeScanner } from 'html5-qrcode';
+import { Html5Qrcode } from 'html5-qrcode';
 import { useEffect } from 'react';
 
 const qrcodeRegionId = "html5qr-code-full-region";
 
 // Creates the configuration object for Html5QrcodeScanner.
-const createConfig = (props:any) => {
-    let config:any = {};
+const createConfig = (props: any) => {
+    let config: any = {};
     if (props.fps) {
         config.fps = props.fps;
     }
@@ -21,26 +21,37 @@ const createConfig = (props:any) => {
     return config;
 };
 
-const Html5QrcodePlugin = (props:any) => {
-
+const Html5QrcodePlugin = (props: any) => {
     useEffect(() => {
-        // when component mounts
-        const config = createConfig(props);
-        const verbose = props.verbose === true;
-        // Suceess callback is required.
-        if (!(props.qrCodeSuccessCallback)) {
-            throw "qrCodeSuccessCallback is required callback.";
-        }
-        const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
-        html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
+        Html5Qrcode.getCameras().then((devices) => {
+            if (devices && devices.length) {
+                var cameraId = devices[0].id;
+                // .. use this to start scanning.
+            }
+        }).catch(()=>{
+            console.log("erorrrrrrrrrrrrrrrrrrr")
+        })
+    }
+        , [])
 
-        // cleanup function when component will unmount
-        return () => {
-            html5QrcodeScanner.clear().catch(error => {
-                console.error("Failed to clear html5QrcodeScanner. ", error);
-            });
-        };
-    }, []);
+    // useEffect(() => {
+    //     // when component mounts
+    //     const config = createConfig(props);
+    //     const verbose = props.verbose === true;
+    //     // Suceess callback is required.
+    //     if (!(props.qrCodeSuccessCallback)) {
+    //         throw "qrCodeSuccessCallback is required callback.";
+    //     }
+    //     const html5QrcodeScanner = new Html5QrcodeScanner(qrcodeRegionId, config, verbose);
+    //     html5QrcodeScanner.render(props.qrCodeSuccessCallback, props.qrCodeErrorCallback);
+
+    //     // cleanup function when component will unmount
+    //     return () => {
+    //         html5QrcodeScanner.clear().catch(error => {
+    //             console.error("Failed to clear html5QrcodeScanner. ", error);
+    //         });
+    //     };
+    // }, []);
 
     return (
         <div id={qrcodeRegionId} />

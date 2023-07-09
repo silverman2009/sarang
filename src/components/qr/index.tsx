@@ -15,6 +15,7 @@ const Qr = () => {
                 qrbox={250}
                 disableFlip={false}
                 qrCodeSuccessCallback={onNewScanResult}
+                
             />
             <ResultContainerPlugin results={decodedResults} />
         </>
