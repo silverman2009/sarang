@@ -14,3 +14,13 @@ export const initialValuesSignUpUser = {
         state: ""
     },
 };
+
+
+export const initialValuesGetOtp  = {
+    phone:""
+}
+
+
+export const initialValuesCheckCode  = {
+    Code:""
+}

@@ -18,7 +18,7 @@ const Input = ({ icon, placeholder, classInput, ltr, label, classInputTag, name,
         <div className="">
             {label && <label className="font-artin-regular block mb-1 pr-1 text-[#2F2F2F]">{label}</label>}
             <div
-                className={`flex gap-1 w-full h-[52px] border bg-[#EFF2F6]  rounded-lg px-2 items-center ${formik.touched[name!] && formik.errors[name!] ? "border-red-500" : "border-transparent"
+                className={`flex gap-1 w-full h-[52px] border bg-[#EFF2F6]  rounded-lg px-2 items-center ${formik.touched[name!] && formik.errors[name!] ? "!border-red-500" : "border-transparent"
                     }  ${classInput}`}
             >
                 {icon && <Image className="w-5 h-5 mb-[1px]" src={icon} alt="" />}
@@ -33,7 +33,7 @@ const Input = ({ icon, placeholder, classInput, ltr, label, classInputTag, name,
                     autoCapitalize="off"
                 />
             </div>
-            <span className="block font-artin-light mt-[1px] text-[11px] text-red-500 pr-1">
+            <span className="block font-artin-light mt-[1px] text-[11px] pt-[2px] text-red-500 pr-1">
                 {formik.touched[name!] && formik.errors[name!] ? formik.errors[name!] : null}
             </span>
         </div>

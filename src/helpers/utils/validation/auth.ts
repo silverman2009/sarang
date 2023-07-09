@@ -16,3 +16,14 @@ export const validationSchemaSignUpStep2 = Yup.object({
     repPassword: Yup.string().required("فیلد اجباری است")
         .oneOf([Yup.ref('password'), "null"], 'تکرار رمز عبور با رمز عبور یکسان نیست'),
 });
+
+
+
+export const validationSchemaGetOtp = Yup.object({
+    phone: Yup.string().required("فیلد اجباری است"),
+})
+
+
+export const validationSchemaCheckCode  = Yup.object({
+    Code:Yup.string().required("فیلد اجباری است")
+})

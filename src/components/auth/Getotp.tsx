@@ -4,14 +4,12 @@ import Phone from "@/assets/images/phone.svg";
 import Image from "next/image";
 import Logo from "@/assets/images/logo.svg";
 import { useFormik } from "formik";
+interface Props {
+    text?: string;
+    formik?: any
+}
+const Getotp = ({ text, formik }: Props) => {
 
-const Getotp = () => {
-    const formik = useFormik({
-        initialValues: {
-            phone: "",
-        },
-        onSubmit: () => {},
-    });
     return (
         <div className="rounded-b-[26px] z-[9999] shadow-md text-white bg_header bg_line h-fit flex flex-col py-10 justify-center items-center">
             <div className="w-[85%] mx-auto">
@@ -25,6 +23,7 @@ const Getotp = () => {
                     </div>
                     <h5 className="font-artin-black text-3xl -mt-1">خوش اومدین</h5>
                     <div className="mt-14 w-full">
+                        {text && <p className="font-artin-regular pb-3">{text}</p>}
                         <Input
                             formik={formik}
                             name="phone"

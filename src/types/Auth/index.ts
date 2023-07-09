@@ -9,3 +9,8 @@ export type SignupUser = {
     "state": string
 
 }
+
+export type CheckCode = {
+    Phone: string;
+    Code: string
+}

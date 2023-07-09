@@ -4,9 +4,10 @@ export function toFarsiNumber(n: string | number) {
 }
 
 export function toEnglishNumber(n: string | number) {
-    // @ts-ignore
     return n
         .toString()
+        // @ts-ignore
         .replace(/[٠-٩]/g, (d) => "٠١٢٣٤٥٦٧٨٩".indexOf(d))
+        // @ts-ignore
         .replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
 }

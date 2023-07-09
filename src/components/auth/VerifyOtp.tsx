@@ -1,10 +1,15 @@
 import React from "react";
 import ReactInputVerificationCode from "react-input-verification-code";
-
-const VerifyOtp = () => {
+interface Props {
+    formik: any
+}
+const VerifyOtp = ({ formik }: Props) => {
+    const onChange = (val: string) => {
+        formik.setFieldValue("Code", val);
+    }
     return (
         <div className="mt-5">
-            <ReactInputVerificationCode placeholder="" length={4} />
+            <ReactInputVerificationCode onChange={onChange} placeholder="" length={4} />
         </div>
     );
 };

@@ -1,7 +1,9 @@
 const apiRoutes = {
     auth:{
         getCity:"/states",
-        signup:"/users/Signup"
+        signup:"/users/Signup",
+        getCodeSignup:"/auth/newUser/VerificationCode",
+        checkCode:"/auth/VerificationCode"
     }
 };
 

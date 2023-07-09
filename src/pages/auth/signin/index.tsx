@@ -5,11 +5,18 @@ import Link from "next/link";
 import Image from "next/image";
 import Warr from "@/assets/images/warr.svg";
 import { useRouter } from "next/navigation";
+import { useFormik } from "formik";
 const Signin = () => {
+    const formik = useFormik({
+        initialValues: {
+            phone: "",
+        },
+        onSubmit: () => { },
+    });
     const router = useRouter();
     return (
         <div className="h-screen flex flex-col justify-between">
-            <Getotp />
+            <Getotp formik={formik} />
             <div className="flex flex-col gap-3 items-center justify-center">
                 <Image src={Warr} alt="" />
                 <p className="text-center text-orange_light font-artin-light">زمانی که پنل درست شود به شما پیامک میدهیم</p>
@@ -17,7 +24,7 @@ const Signin = () => {
 
             <div className="layout flex flex-col gap-5 mb-5">
                 <Button
-                    onClick={() => router.push("/auth/user/verifyotp")}
+                    onClick={formik.handleSubmit}
                     classBtn="bg-[#464646] text-white"
                     name="ارسال کد تائید"
                 />
