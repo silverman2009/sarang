@@ -3,7 +3,7 @@ const apiRoutes = {
         getCity:"/states",
         signup:"/users/Signup",
         getCodeSignup:"/auth/newUser/VerificationCode",
-        getCodeSignin:"/auth/VerificationCode",
+        signin:"/auth/VerificationCode",
         checkCode:"/auth/VerificationCode"
     }
 };

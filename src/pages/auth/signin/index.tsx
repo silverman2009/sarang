@@ -17,16 +17,14 @@ const Signin = () => {
         validationSchema: validationSchemaGetOtp,
         onSubmit: (values) => {
             setPhone(values.phone)
-            refetch()
         },
     });
-    const { refetch, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone))
 
     return (
         <div className="h-screen flex flex-col justify-between">
             <Getotp isLogin formik={formik} text="برای ورود لطفا شماره تلفن همراه خود و پسورد  را وارد کنید" />
             {
-                isError &&
+                false &&
                 <div className="flex flex-col gap-3 items-center justify-center">
                     <Image src={Warr} alt="" />
                     {/* @ts-ignore */}

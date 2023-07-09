@@ -14,3 +14,8 @@ export type CheckCode = {
     Phone: string;
     Code: number
 }
+
+export type LoginUser = {
+    "phone": "",
+    "password": ""
+}
