@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 const useHandleCookies = () => {
-    const removeUser = useAuthStore((s) => s.removeUser);
+    // const removeUser = useAuthStore((s) => s.removeUser);
     const [cookies, _, removeCookies] = useCookies(["token", "jwt"]);
     const { push } = useRouter();
 
