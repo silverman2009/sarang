@@ -4,23 +4,35 @@ import Button from "@/components/common/Button";
 import Link from "next/link";
 import Image from "next/image";
 import Warr from "@/assets/images/warr.svg";
-import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
+import useAuthStore from "@/stores/auth-store";
+import { initialValueLogin } from "@/helpers/utils/initialValues";
+import { validationSchemaGetOtp } from "@/helpers/utils/validation/auth";
+import useGetCodeActivationQuery from "@/hooks/query/auth/useGetCodeActivationQuery";
+import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 const Signin = () => {
+    const { setPhone } = useAuthStore()
     const formik = useFormik({
-        initialValues: {
-            phone: "",
+        initialValues: initialValueLogin,
+        validationSchema: validationSchemaGetOtp,
+        onSubmit: (values) => {
+            setPhone(values.phone)
+            refetch()
         },
-        onSubmit: () => { },
     });
-    const router = useRouter();
+    const { refetch, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone))
+
     return (
         <div className="h-screen flex flex-col justify-between">
-            <Getotp formik={formik} />
-            <div className="flex flex-col gap-3 items-center justify-center">
-                <Image src={Warr} alt="" />
-                <p className="text-center text-orange_light font-artin-light">زمانی که پنل درست شود به شما پیامک میدهیم</p>
-            </div>
+            <Getotp isLogin formik={formik} text="برای ورود لطفا شماره تلفن همراه خود و پسورد  را وارد کنید" />
+            {
+                isError &&
+                <div className="flex flex-col gap-3 items-center justify-center">
+                    <Image src={Warr} alt="" />
+                    {/* @ts-ignore */}
+                    <p className="text-center text-orange_light font-artin-light">{error.response.data.Message}</p>
+                </div>
+            }
 
             <div className="layout flex flex-col gap-5 mb-5">
                 <Button

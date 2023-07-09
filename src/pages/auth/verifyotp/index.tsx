@@ -25,8 +25,6 @@ const VerifyOtp = () => {
         onSubmit: (values) => {
             mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone) })
         }
-
-
     })
 
     useEffect(() => {

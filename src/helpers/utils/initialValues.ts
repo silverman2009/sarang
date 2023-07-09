@@ -16,3 +16,9 @@ export const initialValuesGetOtp  = {
 export const initialValuesCheckCode  = {
     Code:""
 }
+
+
+export const initialValueLogin = {
+    phone:'',
+    password:''  
+}
