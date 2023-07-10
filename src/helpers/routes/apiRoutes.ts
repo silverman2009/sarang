@@ -8,6 +8,9 @@ const apiRoutes = {
         checkCodeLogin:"/auth/login/VerificationCode",
         forgetPass:"/auth/resetPassword",
         me:"/user"
+    },
+    driver:{
+        getDriverByCityNumber:"/driver"
     }
 };
 

@@ -27,6 +27,7 @@ const Qr = (props: any) => {
       html5QrCode
         .stop()
         .then((res: any) => {
+          alert(res)
           html5QrCode.clear();
         })
         .catch((err: any) => {
