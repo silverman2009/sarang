@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import React from 'react'
 import useGetDriverByCityNumberQuery from "@/hooks/query/drivers/useGetDriverByCityNumberQuery"
 const QrCode = dynamic(() => import("../components/qr/index"), { ssr: false })
-const qr_code = () => {
+const Scan_qr = () => {
     const [code, setCode] = useState("")
     const { isLoading } = useGetDriverByCityNumberQuery(code)
     return (
@@ -16,4 +16,4 @@ const qr_code = () => {
     )
 }
 
-export default qr_code
+export default Scan_qr
