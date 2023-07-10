@@ -19,3 +19,7 @@ export type LoginUser = {
     "phone": string,
     "password": string
 }
+
+export type ForgetPass = {
+    phone:string
+}

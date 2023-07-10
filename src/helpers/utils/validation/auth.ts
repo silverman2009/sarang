@@ -15,6 +15,10 @@ export const validationSchemaGetOtp = Yup.object({
     phone: Yup.string().required("فیلد اجباری است"),
 })
 
+export const validationSchemaForgetPass = Yup.object({
+    phone: Yup.string().required("فیلد اجباری است"),
+})
+
 
 export const validationSchemaCheckCode = Yup.object({
     Code: Yup.string().required("فیلد اجباری است")

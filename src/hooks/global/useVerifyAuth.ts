@@ -20,9 +20,9 @@ const useVerifyAuth = () => {
                         // setUser({ user });
                     }
                 } catch (error) {
-                    delete axios.defaults.headers.common["Authorization"];
-                    removeCookies("token", { path: "/" });
-                    removeCookies("jwt", { path: "/" });
+                    // delete axios.defaults.headers.common["Authorization"];
+                    // removeCookies("token", { path: "/" });
+                    // removeCookies("jwt", { path: "/" });
                 } finally {
                     // setAuthLoading(false);
                 }

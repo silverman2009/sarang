@@ -5,7 +5,8 @@ const apiRoutes = {
         getCodeSignup:"/auth/newUser/VerificationCode",
         login:"/auth",
         checkCodeSignup:"/auth/VerificationCode",
-        checkCodeLogin:"/auth/login/VerificationCode"
+        checkCodeLogin:"/auth/login/VerificationCode",
+        forgetPass:"/auth/resetPassword"
     }
 };
 
