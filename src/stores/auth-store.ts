@@ -7,7 +7,7 @@ interface UseAuthStore {
     setPhone: (phone: string) => void;
     user: User | null;
     setUser: ({ user }: { user: User | null }) => void;
-    removeUser:()=> void
+    removeUser: () => void
 }
 const useAuthStore = create<UseAuthStore>()(devtools(immer((set) => ({
     phone: "",
