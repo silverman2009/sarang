@@ -25,7 +25,7 @@ const Signin = () => {
 
     return (
         <div className="h-screen flex flex-col justify-between">
-            <Getotp isLogin formik={formik} text="برای ورود لطفا شماره تلفن همراه خود و پسورد  را وارد کنید" />
+            <Getotp isPass isLogin formik={formik} text="برای ورود لطفا شماره تلفن همراه خود و پسورد  را وارد کنید" />
             
             {
                 isError &&

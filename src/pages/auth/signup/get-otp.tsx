@@ -1,14 +1,11 @@
 import Getotp from '@/components/auth/Getotp'
 import Button from '@/components/common/Button'
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { useFormik } from 'formik'
 import { initialValuesGetOtp } from '@/helpers/utils/initialValues'
 import { validationSchemaGetOtp } from '@/helpers/utils/validation/auth'
 import useGetCodeActivationQuery from '@/hooks/query/auth/useGetCodeActivationQuery'
-import Lottie from "lottie-react";
-import Loading from "@/assets/images/loading.json"
 import { toEnglishNumber } from '@/helpers/utils/toFarsiNumber'
 import useAuthStore from '@/stores/auth-store'
 import { Warr_iocn } from '@/components/global/icons'
@@ -22,15 +19,11 @@ const GetOtpSignup = () => {
       refetch()
     },
   });
-  const { refetch, isLoading, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone))
+  const { refetch, isLoading, isError, error, } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone))
   return (
     <>
       <div className="h-screen flex flex-col justify-between">
         <Getotp formik={formik} text="برای ثبت نام لطفا شماره تلفن همراه خود را وارد کنید" />
-        {
-          isLoading &&
-          <Lottie animationData={Loading} className='!-mt-14' />
-        }
 
         {
           isError &&

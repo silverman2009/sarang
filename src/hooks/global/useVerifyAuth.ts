@@ -2,34 +2,30 @@ import axios from "../../services/utils/axios";
 import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 import useAuthStore from "../../stores/auth-store";
+import { getUser } from "@/services/user";
 
 const useVerifyAuth = () => {
     // const setAuthLoading = useAuthStore((s) => s.setAuthLoading);
-    // const setUser = useAuthStore((s) => s.setUser);
-    // const removeUser = useAuthStore((s) => s.removeUser);
-    const [cookies, setCookies, removeCookies] = useCookies(["token", "jwt"]);
-    const getUser = () => {};
+    const setUser = useAuthStore((s) => s.setUser);
+    const removeUser = useAuthStore((s) => s.removeUser);
+    const [cookies, setCookies, removeCookies] = useCookies(["token"]);
     useEffect(() => {
-        if (cookies.token && cookies.jwt) {
+        if (cookies.token) {
             const verifyUser = async () => {
-                // setAuthLoading(true);
-                axios.defaults.headers.common["Authorization"] = `${cookies.token}`;
+                axios.defaults.headers.common["x-access-token"] = `${cookies.token}`;
                 try {
-                    const { status, user }: any = await getUser();
-                    if (status) {
-                        // setUser({ user });
+                    const data: any = await getUser();
+                    if (data) {
+                        setUser({ user:data });
                     }
                 } catch (error) {
-                    // delete axios.defaults.headers.common["Authorization"];
-                    // removeCookies("token", { path: "/" });
-                    // removeCookies("jwt", { path: "/" });
-                } finally {
-                    // setAuthLoading(false);
-                }
+                    delete axios.defaults.headers.common["x-access-token"];
+                    removeCookies("token", { path: "/" });
+                } 
 
-                verifyUser();
             };
-        } else if (!cookies.token && cookies.jwt) {
+            verifyUser();
+        } else if (!cookies.token) {
             const refreshUser = async () => {
                 delete axios.defaults.headers.common["Authorization"];
                 removeCookies("token", { path: "/" });
@@ -45,12 +41,11 @@ const useVerifyAuth = () => {
             };
             refreshUser();
         } else {
-            delete axios.defaults.headers.common["Authorization"];
+            delete axios.defaults.headers.common["x-access-token"];
             removeCookies("token", { path: "/" });
-            removeCookies("jwt", { path: "/" });
-            // removeUser();
+            removeUser();
         }
-    }, [cookies.token, cookies.jwt]);
+    }, [cookies.token]);
 };
 
 export default useVerifyAuth;

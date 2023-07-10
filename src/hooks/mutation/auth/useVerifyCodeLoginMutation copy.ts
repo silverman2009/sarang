@@ -12,7 +12,7 @@ const useVerifyCodeLoginMutation = () => {
     return useMutation(async (data: CheckCode) => await checkCodeLogin(data), {
         onSuccess: async function ({token}) {
             setCookies("token", token, { path: "/" });
-            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            axios.defaults.headers.common["x-access-token"] = `${token}`;
             router.push("/")
         },
         onError: async function (error) {

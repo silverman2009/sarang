@@ -4,13 +4,15 @@ import { QueryClientProvider } from "react-query";
 import useConfigureQueryClient from "@/hooks/common/useConfigureQueryClient";
 import useVerifyAuth from "@/hooks/global/useVerifyAuth";
 import { MuiRtl } from "@/theme/RtlProvider";
+import useHandleCookies from "@/hooks/common/useHandleCookies";
 interface GlobalContextProviderProps {
     children?: ReactNode;
 }
 
 const GlobalContextProvider = ({ children }: GlobalContextProviderProps) => {
     const queryClient = useConfigureQueryClient();
-    // useVerifyAuth();
+    useHandleCookies()
+    useVerifyAuth();
     return (
         <QueryClientProvider client={queryClient}>
             <MuiRtl>{children}</MuiRtl>

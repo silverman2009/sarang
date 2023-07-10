@@ -6,7 +6,8 @@ const apiRoutes = {
         login:"/auth",
         checkCodeSignup:"/auth/VerificationCode",
         checkCodeLogin:"/auth/login/VerificationCode",
-        forgetPass:"/auth/resetPassword"
+        forgetPass:"/auth/resetPassword",
+        me:"/user"
     }
 };
 

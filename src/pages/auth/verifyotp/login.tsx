@@ -72,10 +72,6 @@ const VerifyOtpLogin = () => {
 
 
             <span></span>
-            {
-                isLoading &&
-                <Lottie animationData={Loading} className='!-mt-14' />
-            }
             <div className="layout">
                 <Button onClick={formik.handleSubmit} classBtn="mb-4 bg-[#464646] text-white" name="تائید کد" />
             </div>

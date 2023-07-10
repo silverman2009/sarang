@@ -8,8 +8,9 @@ interface Props {
     text?: string;
     formik?: any;
     isLogin?: boolean;
+    isPass?: boolean;
 }
-const Getotp = ({ text, formik, isLogin }: Props) => {
+const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
 
     return (
         <div>
@@ -52,8 +53,10 @@ const Getotp = ({ text, formik, isLogin }: Props) => {
                     </div>
                 </div>
             </div>
-
-            <Link href="/auth/forgetpass" className="text-black cursor-pointer relative !z-[9999] font-artin-bold px-4 flex justify-end pt-3">فراموشی رمزعبور؟</Link>
+            {
+                isPass &&
+                <Link href="/auth/forgetpass" className="text-black cursor-pointer relative !z-[9999] font-artin-bold px-4 flex justify-end pt-3">فراموشی رمزعبور؟</Link>
+            }
         </div>
     );
 };
