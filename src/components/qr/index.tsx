@@ -41,8 +41,8 @@ const Qr = (props: any) => {
   }, [])
 
   return (
-    <div style={{ position: "relative" }}>
-      <div id="reader" style={{ width: "100%" }} />
+    <div className="relative h-screen">
+      <div id="reader" className="w-full h-screen" />
     </div>
   );
 };

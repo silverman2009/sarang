@@ -1,4 +1,3 @@
-import Qr from '@/components/qr'
 import dynamic from 'next/dynamic'
 import React from 'react'
 const QrCode = dynamic(() => import("../components/qr/index"),{ssr:false})
