@@ -10,14 +10,14 @@ import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import { initialValuesCheckCode } from "@/helpers/utils/initialValues";
 import { validationSchemaCheckCode } from "@/helpers/utils/validation/auth";
-import useVerifyCodeMutation from "@/hooks/mutation/auth/useVerifyCodeMutation";
+import useVerifyCodeSignupMutation from "@/hooks/mutation/auth/useVerifyCodeSignupMutation";
 import useAuthStore from "@/stores/auth-store";
 import Lottie from "lottie-react";
 import Loading from "@/assets/images/loading.json"
 import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 const VerifyOtp = () => {
     const { phone } = useAuthStore()
-    const { mutate, isError, error, isLoading } = useVerifyCodeMutation()
+    const { mutate, isError, error, isLoading } = useVerifyCodeSignupMutation()
     const router = useRouter();
     const formik = useFormik({
         initialValues: initialValuesCheckCode,

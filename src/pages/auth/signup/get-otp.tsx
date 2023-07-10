@@ -3,7 +3,6 @@ import Button from '@/components/common/Button'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import Warr from "@/assets/images/warr.svg";
 import { useFormik } from 'formik'
 import { initialValuesGetOtp } from '@/helpers/utils/initialValues'
 import { validationSchemaGetOtp } from '@/helpers/utils/validation/auth'
@@ -12,6 +11,7 @@ import Lottie from "lottie-react";
 import Loading from "@/assets/images/loading.json"
 import { toEnglishNumber } from '@/helpers/utils/toFarsiNumber'
 import useAuthStore from '@/stores/auth-store'
+import { Warr_iocn } from '@/components/global/icons'
 const GetOtpSignup = () => {
   const { setPhone } = useAuthStore()
   const formik = useFormik({
@@ -35,7 +35,7 @@ const GetOtpSignup = () => {
         {
           isError &&
           <div className="flex flex-col gap-3 items-center -mt-10 justify-center">
-            <Image src={Warr} alt="" />
+            <Warr_iocn/>
             {/* @ts-ignore */}
             <p className="text-center text-orange_light font-artin-light">{error?.response?.data?.Message}</p>
           </div>

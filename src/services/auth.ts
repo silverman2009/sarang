@@ -13,7 +13,7 @@ export const signupUser = async (data: SignupUser) => {
     return await client<string>({ url, method: "POST",data });
 };
 export const loginUser = async (data: LoginUser) => {
-    const url = getRoute({ route: `${routes.auth.signin}` });
+    const url = getRoute({ route: `${routes.auth.login}` });
     return await client<string>({ url, method: "POST",data });
 };
 
@@ -24,7 +24,11 @@ export const getActivationCodeSignup = async (phone: string) => {
 };
 
 
-export const checkCode = async (data: CheckCode) => {
-    const url = getRoute({ route: `${routes.auth.checkCode}` });
+export const checkCodeSignup = async (data: CheckCode) => {
+    const url = getRoute({ route: `${routes.auth.checkCodeSignup}` });
     return await client<string>({ url, method: "POST",data });
+};
+export const checkCodeLogin = async (data: CheckCode) => {
+    const url = getRoute({ route: `${routes.auth.checkCodeLogin}` });
+    return await client<{token:string}>({ url, method: "POST",data });
 };

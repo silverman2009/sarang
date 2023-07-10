@@ -16,6 +16,6 @@ export type CheckCode = {
 }
 
 export type LoginUser = {
-    "phone": "",
-    "password": ""
+    "phone": string,
+    "password": string
 }
