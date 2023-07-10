@@ -13,7 +13,7 @@ const Qr = (props: any) => {
   const handleClickAdvanced = () => {
     const qrCodeSuccessCallback = (decodedText: any) => {
       props.onResult(decodedText);
-      handleStop();
+      // handleStop();
     };
     html5QrCode.start(
       { facingMode: "environment" },
@@ -22,20 +22,20 @@ const Qr = (props: any) => {
     );
   };
 
-  const handleStop = () => {
-    try {
-      html5QrCode
-        .stop()
-        .then((res: any) => {
-          html5QrCode.clear();
-        })
-        .catch((err: any) => {
-          console.log(err.message);
-        });
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleStop = () => {
+  //   try {
+  //     html5QrCode
+  //       .stop()
+  //       .then((res: any) => {
+  //         html5QrCode.clear();
+  //       })
+  //       .catch((err: any) => {
+  //         console.log(err.message);
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   useEffect(() => {
     handleClickAdvanced()
