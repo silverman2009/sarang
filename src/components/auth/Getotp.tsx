@@ -30,7 +30,7 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                             <Input
                                 formik={formik}
                                 name="phone"
-                                type="tell"
+                                type="tel"
                                 classInputTag="placeholder:!text-[#fff]"
                                 ltr
                                 classInput="border-[0.1rem] border-white bg-white/40 text-white"
@@ -40,8 +40,7 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                             {
                                 isLogin &&
                                 <Input
-                                    type="password"
-                                    
+                                    type="password" 
                                     formik={formik}
                                     name="password"
                                     classInputTag="placeholder:!text-[#fff]"
