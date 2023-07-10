@@ -11,8 +11,8 @@ interface GlobalContextProviderProps {
 
 const GlobalContextProvider = ({ children }: GlobalContextProviderProps) => {
     const queryClient = useConfigureQueryClient();
-    useHandleCookies()
-    useVerifyAuth();
+    // useHandleCookies()
+    // useVerifyAuth();
     return (
         <QueryClientProvider client={queryClient}>
             <MuiRtl>{children}</MuiRtl>
