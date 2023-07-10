@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Html5Qrcode } from "html5-qrcode";
+import Button from "../common/Button";
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 const brConfig = { fps: 10, qrbox: { width: 300, height: 150 } };
 let html5QrCode: any;
@@ -41,8 +42,11 @@ const Qr = (props: any) => {
   }, [])
 
   return (
-    <div className="relative h-screen">
-      <div id="reader" className="w-full h-screen" />
+    <div className="relative h-screen bg-[#00000043]">
+      <div id="reader" className="w-full" />
+      <div className="absolute w-[90%] left-1/2 -translate-x-1/2 bottom-10">
+        <Button classBtn="bg-orange_light text-white " name="بازگشت" />
+      </div>
     </div>
   );
 };
