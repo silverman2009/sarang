@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import Button from "../common/Button";
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
-const brConfig = { fps: 10, qrbox: { width: 300, height: 250 } };
+const brConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 let html5QrCode: any;
 
 const Qr = (props: any) => {
