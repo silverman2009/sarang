@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 const brConfig = { fps: 10, qrbox: { width: 300, height: 150 } };
-let html5QrCode:any;
+let html5QrCode: any;
 
-const Qr = (props:any) => {
+const Qr = (props: any) => {
   useEffect(() => {
     html5QrCode = new Html5Qrcode("reader");
   }, []);
 
   const handleClickAdvanced = () => {
-    const qrCodeSuccessCallback = (decodedText:any) => {
+    const qrCodeSuccessCallback = (decodedText: any) => {
       props.onResult(decodedText);
       handleStop();
     };
@@ -25,10 +25,10 @@ const Qr = (props:any) => {
     try {
       html5QrCode
         .stop()
-        .then((res:any) => {
+        .then((res: any) => {
           html5QrCode.clear();
         })
-        .catch((err:any) => {
+        .catch((err: any) => {
           console.log(err.message);
         });
     } catch (err) {
@@ -36,13 +36,13 @@ const Qr = (props:any) => {
     }
   };
 
+  useEffect(() => {
+    handleClickAdvanced()
+  }, [])
+
   return (
     <div style={{ position: "relative" }}>
-      <div id="reader" style={{width:"100%"}} />
-      <button onClick={() => handleClickAdvanced()}>
-        click pro {props.type}
-      </button>
-      <button onClick={() => handleStop()}>stop pro</button>
+      <div id="reader" style={{ width: "100%" }} />
     </div>
   );
 };
