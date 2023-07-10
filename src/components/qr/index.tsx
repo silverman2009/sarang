@@ -43,7 +43,7 @@ const Qr = (props: any) => {
 
   return (
     <div className="relative h-screen bg-[#00000043]">
-      <div id="reader" className="w-full" />
+      <div id="reader" className="w-full !h-[600px]" />
       <div className="absolute w-[90%] left-1/2 -translate-x-1/2 bottom-10">
         <Button classBtn="bg-orange_light text-white " name="بازگشت" />
       </div>
