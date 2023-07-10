@@ -5,6 +5,6 @@ import { ResponseGetGriverByCityNumberQuery } from "@/types/Driver/ResponseGetGr
 
 
 export const getDriverByCityName = async (code:string) => {
-    const url = getRoute({ route: `${routes.driver.getDriverByCityNumber}/code` });
+    const url = getRoute({ route: `${routes.driver.getDriverByCityNumber}/${code}` });
     return await client<ResponseGetGriverByCityNumberQuery>({ url, method: "GET" });
 };
