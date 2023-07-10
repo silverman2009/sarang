@@ -32,7 +32,7 @@ const Signin = () => {
                 <div className="flex flex-col gap-3 items-center justify-center">
                     <Warr_iocn />
                     {/* @ts-ignore */}
-                    <p className="text-center text-orange_light font-artin-light">{error.response.data.Message}</p>
+                    <p className="text-center text-orange_light font-artin-light">{error?.response?.data?.Message}</p>
                 </div>
             }
 
