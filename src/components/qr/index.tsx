@@ -16,8 +16,7 @@ const Qr = (props: any) => {
       handleStop();
     };
     html5QrCode.start(
-      { facingMode: "environment" },
-      props.type === "QR" ? qrConfig : brConfig,
+      { facingMode: "environment" }, qrConfig,
       qrCodeSuccessCallback
     );
   };

@@ -23,7 +23,7 @@ export type Driver =
         },
         "CarRoute": {
             "_id": string,
-            "Name": string,
+            "Name": "چرخشی" | string,
             "Cost": number
         }
     }
