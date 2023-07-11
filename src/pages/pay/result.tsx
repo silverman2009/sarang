@@ -4,16 +4,27 @@ import Image from 'next/image'
 import { Check_iocn } from '@/components/global/icons'
 import Button from '@/components/common/Button'
 import Logo from "@/assets/images/logo.svg"
-// @ts-ignore
-import SuccessPay from "@/assets/images/success.json"
-import Lottie from 'lottie-react'
+import useDriverStore from '@/stores/driver-store'
+import { useRouter } from 'next/router'
+
 const Result = () => {
+    const router = useRouter()
+    const { code, setCode } = useDriverStore()
     const [isView, setIsView] = useState(false)
+
     useEffect(() => {
         setTimeout(() => {
             setIsView(true)
         }, 1000)
     }, [])
+    useEffect(() => {
+        if (!code) {
+            router.push("/")
+        }
+        if (isView) {
+            setCode(" ")
+        }
+    }, [isView])
     return (
         <div className='h-screen bg-white flex relative flex-col justify-between'>
             <div className={`bg-[#F57D0E] flex  rounded-b-[28px] shadow-md px-4 transition-all duration-[1.2s] justify-center items-center ${isView ? "flex-row-reverse h-[200px]" : "flex-col gap-10 h-[450px]"}`}>
@@ -33,7 +44,7 @@ const Result = () => {
 
             {/* <Lottie animationData={SuccessPay} /> */}
             <div className={`absolute bottom-0 w-[90%]  transition-all duration-[1.3s] left-1/2  ${isView ? "-translate-x-1/2" : "translate-x-full"}`}>
-                <Button classBtn='bg-[#464646] mb-10 text-white' name='بازگشت به صحفه اصلی' />
+                <Button onClick={() => router.push("/")} classBtn='bg-[#464646] mb-10 text-white' name='بازگشت به صحفه اصلی' />
             </div>
         </div>
     )
