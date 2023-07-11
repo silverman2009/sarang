@@ -14,7 +14,7 @@ const Scan_qr = () => {
 
 
 
-    return <>{!isLoading ? <div className="h-screen flex flex-col justify-between items-center">
+    return <>{isLoading ? <div className="h-screen flex flex-col justify-between items-center">
         <div className="mt-14">
             <Lottie animationData={ScanJson} />
             <p className="text-center  font-artin-bold text-xl">در حال گرفتن اطلاعات راننده..</p>
