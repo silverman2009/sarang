@@ -23,7 +23,7 @@ const Qr = ({ setCode }: Props) => {
 
     const handleClickAdvanced = () => {
         const qrCodeSuccessCallback = (decodedText: any) => {
-            onResult()
+            // onResult()
             handleStop();
         };
         html5QrCode.start({ facingMode: "environment" }, qrConfig, qrCodeSuccessCallback);
