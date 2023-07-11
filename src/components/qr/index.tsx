@@ -6,14 +6,15 @@ import { PaymentTypeEnum } from "@/helpers/utils/data";
 import useDriverStore from "@/stores/driver-store";
 
 interface Props {
-    setCode: React.Dispatch<React.SetStateAction<string>>
+    setCode: React.Dispatch<React.SetStateAction<string>>;
+    code:string
 }
 
 let html5QrCode: any
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 
 
-const Qr = ({ setCode }: Props) => {
+const Qr = ({ setCode, code }: Props) => {
     const router = useRouter()
     const { setPaymentTypeEnum } = useDriverStore()
 
@@ -23,7 +24,7 @@ const Qr = ({ setCode }: Props) => {
 
     const handleClickAdvanced = () => {
         const qrCodeSuccessCallback = (decodedText: any) => {
-            // onResult()
+            onResult()
             handleStop();
         };
         html5QrCode.start({ facingMode: "environment" }, qrConfig, qrCodeSuccessCallback);
@@ -32,7 +33,9 @@ const Qr = ({ setCode }: Props) => {
 
 
     useEffect(() => {
-        handleClickAdvanced();
+        if (!code) {
+            handleClickAdvanced();
+        }
     }, []);
 
 

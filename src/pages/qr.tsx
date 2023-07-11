@@ -13,7 +13,7 @@ const Scan_qr = () => {
 
 
 
-    return <>{isLoading ? <p>در حال گرفتن اطلاعات</p> : <QrCode setCode={setCode}  />}</>;
+    return <>{isLoading ? <p>در حال گرفتن اطلاعات</p> : <QrCode code={code} setCode={setCode}  />}</>;
 };
 
 export default Scan_qr;
