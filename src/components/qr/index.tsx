@@ -7,7 +7,7 @@ import useDriverStore from "@/stores/driver-store";
 
 interface Props {
     setCode: React.Dispatch<React.SetStateAction<string>>;
-    code:string
+    code: string
 }
 
 let html5QrCode: any
@@ -56,6 +56,12 @@ const Qr = ({ setCode, code }: Props) => {
     };
 
 
+
+    const backScreen = () => {
+        router.back()
+        return handleStop()
+    }
+
     const onResult = () => {
         setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE)
         setCode("12345")
@@ -64,7 +70,7 @@ const Qr = ({ setCode, code }: Props) => {
         <div className="relative h-screen bg-[#00000043]">
             <div id="reader" className="w-full" />
             <div className="absolute w-[90%] left-1/2 -translate-x-1/2 bottom-10">
-                <Button onClick={() => router.back()} classBtn="bg-orange_light text-white " name="بازگشت" />
+                <Button onClick={backScreen} classBtn="bg-orange_light text-white " name="بازگشت" />
             </div>
         </div>
     );
