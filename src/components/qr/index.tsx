@@ -31,10 +31,11 @@ const Qr = () => {
     useEffect(() => {
         if (code) {
             router.push("/")
+            handleStop()
         } else {
             handleClickAdvanced();
         }
-    }, []);
+    }, [code]);
 
 
 
@@ -57,7 +58,7 @@ const Qr = () => {
 
     const backScreen = () => {
         router.back()
-        return handleStop()
+      return  handleStop()
     }
 
     const onResult = () => {

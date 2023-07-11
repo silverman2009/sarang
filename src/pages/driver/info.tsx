@@ -1,5 +1,5 @@
 import useDriverStore from "@/stores/driver-store";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Input from "@/components/common/Input";
 import { useFormik } from "formik";
@@ -9,11 +9,12 @@ import InfoDriverProfile from "@/components/driver/InfoDriverProfile";
 import useFarePaymentMutation from "@/hooks/mutation/Fare/useFarePaymentMutation";
 import { initialValuesFare } from "@/helpers/utils/initialValues";
 import { variantSchemaFare } from "@/helpers/utils/validation/fare";
-import useAuthStore from "@/stores/auth-store";
+import { useRouter } from "next/navigation";
 const InfoDriver = () => {
   const { mutate, isLoading } = useFarePaymentMutation();
   const [count, setCount] = useState(1);
-  const { driver, paymentTypeEnum } = useDriverStore();
+  const { driver, paymentTypeEnum } = useDriverStore()
+  const router = useRouter()
   const formik = useFormik({
     initialValues: initialValuesFare,
     validationSchema: variantSchemaFare,
@@ -28,7 +29,7 @@ const InfoDriver = () => {
   });
 
   const increment = () => {
-    if(count === 4) return
+    if (count === 4) return
     setCount((count) => count + 1);
   }
   const decrement = () => {
@@ -50,6 +51,15 @@ const InfoDriver = () => {
       mutate(data)
     }
   }
+
+
+  useEffect(() => {
+    if (!driver?.CarRoute.Name) {
+      router.push("/")
+    }
+  }, [driver])
+
+  
   return (
     <div className="min-h-screen bg-white flex flex-col justify-between gap-20">
       <div>

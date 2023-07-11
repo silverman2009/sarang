@@ -5,14 +5,9 @@ import Lottie from "lottie-react";
 import ScanJson from "@/assets/images/qr-code-scan.json"
 import useGetDriverByCityNumberQuery from "@/hooks/query/drivers/useGetDriverByCityNumberQuery";
 import Button from "@/components/common/Button";
-const QrCode = dynamic(() => import("../components/qr/index"), { ssr: false });
+const QrCode = dynamic(() => import("../../components/qr/index"), { ssr: false });
 const Scan_qr = () => {
     const { isLoading } = useGetDriverByCityNumberQuery();
-
-
-
- 
-
 
     return <>{isLoading ? <div className="h-screen flex flex-col justify-between items-center">
         <div className="mt-14">

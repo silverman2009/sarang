@@ -13,8 +13,8 @@ const useGetDriverByCityNumberQuery = () => {
         cacheTime: 0,
         staleTime: 0,
         retry: 0,
-        onSuccess: (data) => {
-            setDriver(data);
+        onSuccess: async (data) => {
+           await setDriver(data);
             router.push(`/driver/info`);
         },
         onError: (error) => {},
