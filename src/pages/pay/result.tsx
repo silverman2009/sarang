@@ -17,7 +17,7 @@ const Result = () => {
                     <Image fill src={ResultImage} alt="" />
                 </div>
                 <div className='flex flex-1  flex-col justify-center items-center gap-4 '>
-                    <h1 className={` font-artin-black whitespace-nowrap text-white transition-all duration-1000 ${isView ? "text-lg" :"text-2xl"}`}>پرداخت شما با موفقیت انجام شد</h1>
+                    <h1 className={` font-artin-black whitespace-nowrap overflow-hidden w-[240px] text-ellipsis text-white transition-all duration-1000 ${isView ? "text-lg" :"text-2xl"}`}>پرداخت شما با موفقیت انجام شد</h1>
                     <Check_iocn />
                 </div>
             </div>
