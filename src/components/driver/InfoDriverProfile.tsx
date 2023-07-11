@@ -18,7 +18,7 @@ const InfoDriverProfile = () => {
                 </p>
                 <div className="flex gap-2 items-center">
                     <Location_icon />
-                    <p className="font-artin-regular">{driver?.Car.Route}</p>
+                    <p className="font-artin-regular">{driver?.CarRoute.Name}</p>
                 </div>
             </div>
         </div>
