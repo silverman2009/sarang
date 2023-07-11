@@ -27,7 +27,10 @@ const InfoDriver = () => {
     },
   });
 
-  const increment = () => setCount((count) => count + 1);
+  const increment = () => {
+    if(count === 4) return
+    setCount((count) => count + 1);
+  }
   const decrement = () => {
     if (count === 1) return;
     setCount((count) => count - 1);
