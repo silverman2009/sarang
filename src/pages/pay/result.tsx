@@ -11,7 +11,7 @@ const Result = () => {
         },500)
     },[])
     return (
-        <div className='h-screen bg-white flex flex-col justify-between'>
+        <div className='h-screen bg-white flex relative flex-col justify-between'>
             <div className={`bg-[#F57D0E] flex  rounded-b-[28px] shadow-md px-4 transition-all duration-1000 justify-center items-center ${isView ? "flex-row-reverse h-[200px]" :"flex-col gap-10 h-[450px]"}`}>
                 <div className={`relative duration-1000 transition-all ${isView ? "w-28 h-28" : "w-64 h-64"}`}>
                     <Image fill src={ResultImage} alt="" />
@@ -21,7 +21,7 @@ const Result = () => {
                     <Check_iocn />
                 </div>
             </div>
-            <div className={`absolute bottom-1 w-[90%]  transition-all duration-500 left-1/2  ${isView ? "-translate-x-1/2" :"translate-x-full"}`}>
+            <div className={`absolute bottom-0 w-[90%]  transition-all duration-500 left-1/2  ${isView ? "-translate-x-1/2" :"translate-x-full"}`}>
                 <Button classBtn='bg-[#464646] mb-10 text-white' name='بازگشت به صحفه اصلی' />
             </div>
         </div>
