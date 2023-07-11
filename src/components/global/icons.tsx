@@ -130,3 +130,24 @@ export const Location_icon = () => (
         />
     </svg>
 );
+
+
+
+export const Check_iocn = () => <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g filter="url(#filter0_d_39_219)">
+        <path d="M29 47.3958C16.6458 47.3958 6.60413 37.3542 6.60413 25C6.60413 12.6458 16.6458 2.60417 29 2.60417C41.3541 2.60417 51.3958 12.6458 51.3958 25C51.3958 37.3542 41.3541 47.3958 29 47.3958ZM29 5.72917C18.375 5.72917 9.72913 14.375 9.72913 25C9.72913 35.625 18.375 44.2708 29 44.2708C39.625 44.2708 48.2708 35.625 48.2708 25C48.2708 14.375 39.625 5.72917 29 5.72917Z" fill="white" />
+        <path d="M26.0416 32.4583C25.625 32.4583 25.2291 32.2917 24.9375 32L19.0416 26.1042C18.4375 25.5 18.4375 24.5 19.0416 23.8958C19.6458 23.2917 20.6458 23.2917 21.25 23.8958L26.0416 28.6875L36.75 17.9792C37.3541 17.375 38.3541 17.375 38.9583 17.9792C39.5625 18.5833 39.5625 19.5833 38.9583 20.1875L27.1458 32C26.8541 32.2917 26.4583 32.4583 26.0416 32.4583Z" fill="white" />
+    </g>
+    <defs>
+        <filter id="filter0_d_39_219" x="-2" y="-2" width="62" height="62" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="3" />
+            <feComposite in2="hardAlpha" operator="out" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_39_219" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_39_219" result="shape" />
+        </filter>
+    </defs>
+</svg>
