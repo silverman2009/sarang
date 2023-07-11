@@ -5,10 +5,10 @@ import Pay from "@/components/user/pay";
 import useDriverStore from "@/stores/driver-store";
 
 const Home = () => {
-    const { setCode } = useDriverStore()
+    const { setCode } = useDriverStore();
     useEffect(() => {
-        setCode("")
-    }, [])
+        setCode("");
+    }, []);
     return (
         <div className="min-h-screen">
             <ProfileInfo />

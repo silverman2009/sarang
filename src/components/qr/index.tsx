@@ -5,14 +5,13 @@ import { useRouter } from "next/navigation";
 import { PaymentTypeEnum } from "@/helpers/utils/data";
 import useDriverStore from "@/stores/driver-store";
 
-let html5QrCode: any
+let html5QrCode: any;
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 
-
 const Qr = () => {
-    const { code, setCode } = useDriverStore()
-    const router = useRouter()
-    const { setPaymentTypeEnum } = useDriverStore()
+    const { code, setCode } = useDriverStore();
+    const router = useRouter();
+    const { setPaymentTypeEnum } = useDriverStore();
 
     useEffect(() => {
         html5QrCode = new Html5Qrcode("reader");
@@ -20,24 +19,20 @@ const Qr = () => {
 
     const handleClickAdvanced = () => {
         const qrCodeSuccessCallback = (decodedText: any) => {
-            onResult()
+            onResult();
             handleStop();
         };
         html5QrCode.start({ facingMode: "environment" }, qrConfig, qrCodeSuccessCallback);
     };
 
-
-
     useEffect(() => {
         if (code) {
-            router.push("/")
-            handleStop()
+            router.push("/");
+            handleStop();
         } else {
             handleClickAdvanced();
         }
     }, [code]);
-
-
 
     const handleStop = () => {
         try {
@@ -54,17 +49,15 @@ const Qr = () => {
         }
     };
 
-
-
     const backScreen = () => {
-        router.back()
-      return  handleStop()
-    }
+        router.back();
+        return handleStop();
+    };
 
     const onResult = () => {
-        setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE)
-        setCode("12345")
-    }
+        setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE);
+        setCode("12345");
+    };
     return (
         <div className="relative h-screen bg-[#00000043]">
             <div id="reader" className="w-full" />

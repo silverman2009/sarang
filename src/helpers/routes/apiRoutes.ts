@@ -13,6 +13,9 @@ const apiRoutes = {
         getDriverByCityNumber: "/driver",
     },
     fare: "/fares",
+    user: {
+        trip: "/trips/user",
+    },
 };
 
 export default apiRoutes;

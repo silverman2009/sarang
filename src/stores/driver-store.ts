@@ -31,7 +31,6 @@ const useDriverStore = create<UserDriverStore>()(
                     state.code = code;
                 });
             },
-
         }))
     )
 );

@@ -1,6 +1,6 @@
 import { Menu_icon, Wallet_icon } from "@/components/global/icons";
 import { BsClockHistory } from "react-icons/bs";
-
+import { FaCarSide } from "react-icons/fa";
 export const sexPerson = [
     {
         value: "مرد",
@@ -15,7 +15,7 @@ export const sexPerson = [
 export const MenuItem = [
     {
         name: "سفر‌ها",
-        icon: BsClockHistory,
+        icon: FaCarSide,
         url: "/trip",
     },
     {
@@ -63,9 +63,6 @@ export const states = [
     { _id: "6048700ec917be5bd82d3d7d", state: "همدان" },
     { _id: "6048700ec917be5bd82d3d7e", state: "یزد" },
 ];
-
-
-
 
 export const PaymentTypeEnum = {
     USER_SCAN_QR_CODE: "اسکن QR کد",

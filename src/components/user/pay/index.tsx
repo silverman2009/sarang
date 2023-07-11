@@ -13,7 +13,9 @@ const Pay = () => {
                         <button onClick={() => router.push("/pay/qr")} className="flex-1 bg-orange_light rounded-lg text-white">
                             پرداخت با Qr
                         </button>
-                        <button onClick={() => router.push("/pay/code")} className="flex-1 border border-[#cecece] rounded-lg">پرداخت با کد شهری</button>
+                        <button onClick={() => router.push("/pay/code")} className="flex-1 border border-[#cecece] rounded-lg">
+                            پرداخت با کد شهری
+                        </button>
                     </div>
                 </div>
             </div>

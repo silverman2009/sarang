@@ -5,7 +5,7 @@ import { DRIVER } from "@/helpers/constants/query-keys";
 import useDriverStore from "@/stores/driver-store";
 
 const useGetDriverByCityNumberQuery = () => {
-    const {code} = useDriverStore()
+    const { code } = useDriverStore();
     const router = useRouter();
     const { setDriver } = useDriverStore();
     return useQuery([DRIVER.GETDRIVE_BY_CITYNUMBER, code], async () => await getDriverByCityName(code), {
@@ -14,7 +14,7 @@ const useGetDriverByCityNumberQuery = () => {
         staleTime: 0,
         retry: 0,
         onSuccess: async (data) => {
-           await setDriver(data);
+            await setDriver(data);
             router.push(`/driver/info`);
         },
         onError: (error) => {},

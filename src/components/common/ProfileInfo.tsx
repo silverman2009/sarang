@@ -6,7 +6,7 @@ import useAuthStore from "@/stores/auth-store";
 const ProfileInfo = () => {
     const { user } = useAuthStore();
     return (
-        <div className="layout mt-5 flex justify-between border-b pb-4 items-center">
+        <div className="  flex justify-between sticky top-0 px-5 py-4 border-b pb-4 items-center z-[9999] bg-[#f3f3f3]">
             <div className="flex gap-3 items-center">
                 <div className="relative w-14 h-14 bg-orange_light rounded-full overflow-hidden">
                     <Image fill src={User} alt="" />

@@ -23,7 +23,6 @@ export const initialValuesFare = {
     amount: "",
 };
 
-
 export const initialValuesPayWithCode = {
-    code:""
-}
+    code: "",
+};
