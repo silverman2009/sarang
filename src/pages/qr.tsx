@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import React from "react";
 import Lottie from "lottie-react";
@@ -7,11 +7,11 @@ import useGetDriverByCityNumberQuery from "@/hooks/query/drivers/useGetDriverByC
 import Button from "@/components/common/Button";
 const QrCode = dynamic(() => import("../components/qr/index"), { ssr: false });
 const Scan_qr = () => {
-    const [code, setCode] = useState("");
-    const { isLoading } = useGetDriverByCityNumberQuery(code);
+    const { isLoading } = useGetDriverByCityNumberQuery();
 
 
 
+ 
 
 
     return <>{isLoading ? <div className="h-screen flex flex-col justify-between items-center">
@@ -23,7 +23,7 @@ const Scan_qr = () => {
             <Button classBtn="bg-orange_light text-white " name="بازگشت" />
         </div>
     </div> :
-        <QrCode code={code} setCode={setCode} />}</>;
+        <QrCode/>}</>;
 };
 
 export default Scan_qr;

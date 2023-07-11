@@ -5,16 +5,12 @@ import { useRouter } from "next/navigation";
 import { PaymentTypeEnum } from "@/helpers/utils/data";
 import useDriverStore from "@/stores/driver-store";
 
-interface Props {
-    setCode: React.Dispatch<React.SetStateAction<string>>;
-    code: string
-}
-
 let html5QrCode: any
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 
 
-const Qr = ({ setCode, code }: Props) => {
+const Qr = () => {
+    const { code, setCode } = useDriverStore()
     const router = useRouter()
     const { setPaymentTypeEnum } = useDriverStore()
 
@@ -33,7 +29,9 @@ const Qr = ({ setCode, code }: Props) => {
 
 
     useEffect(() => {
-        if (!code) {
+        if (code) {
+            router.push("/")
+        } else {
             handleClickAdvanced();
         }
     }, []);

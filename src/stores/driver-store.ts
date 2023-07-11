@@ -7,11 +7,14 @@ interface UserDriverStore {
     setDriver: (driver: Driver | null) => void;
     paymentTypeEnum: string | undefined;
     setPaymentTypeEnum: (typePay: string | undefined) => void;
+    code: string;
+    setCode: (code: string) => void;
 }
 const useDriverStore = create<UserDriverStore>()(
     devtools(
         immer((set) => ({
             driver: null,
+            code: "",
             paymentTypeEnum: undefined,
             setDriver: (driver: Driver | null) => {
                 set((state) => {
@@ -21,6 +24,11 @@ const useDriverStore = create<UserDriverStore>()(
             setPaymentTypeEnum: (typePay: string | undefined) => {
                 set((state) => {
                     state.paymentTypeEnum = typePay;
+                });
+            },
+            setCode: (code: string) => {
+                set((state) => {
+                    state.code = code;
                 });
             },
 
