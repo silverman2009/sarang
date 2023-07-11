@@ -16,13 +16,12 @@ const useVerifyAuth = () => {
                 try {
                     const data: any = await getUser();
                     if (data) {
-                        setUser({ user:data });
+                        setUser({ user: data });
                     }
                 } catch (error) {
                     delete axios.defaults.headers.common["x-access-token"];
                     removeCookies("token", { path: "/" });
-                } 
-
+                }
             };
             verifyUser();
         } else if (!cookies.token) {

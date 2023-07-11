@@ -11,30 +11,29 @@ import useLoginUserMuation from "@/hooks/mutation/auth/useLoginUserMuation";
 import { LoginUser } from "@/types/Auth";
 import { convertObjectEnglishNumber } from "@/helpers/utils/converObject";
 const Signin = () => {
-    const { mutate, isError, error,isLoading } = useLoginUserMuation()
-    const { setPhone } = useAuthStore()
+    const { mutate, isError, error, isLoading } = useLoginUserMuation();
+    const { setPhone } = useAuthStore();
     const formik = useFormik<LoginUser>({
         initialValues: initialValueLogin,
         validationSchema: validationSchemaGetOtp,
         onSubmit: (values) => {
-            const results = convertObjectEnglishNumber(values)
-            setPhone(values.phone)
-            mutate(results)
+            const results = convertObjectEnglishNumber(values);
+            setPhone(values.phone);
+            mutate(results);
         },
     });
 
     return (
         <div className="h-screen flex flex-col justify-between">
             <Getotp isPass isLogin formik={formik} text="برای ورود لطفا شماره تلفن همراه خود و پسورد  را وارد کنید" />
-            
-            {
-                isError &&
+
+            {isError && (
                 <div className="flex flex-col gap-3 items-center justify-center">
                     <Warr_iocn />
                     {/* @ts-ignore */}
                     <p className="text-center text-orange_light font-artin-light">{error?.response?.data?.Message}</p>
                 </div>
-            }
+            )}
 
             <div className="layout flex flex-col gap-5 mb-5">
                 <Button

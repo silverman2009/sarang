@@ -7,33 +7,30 @@ interface UseAuthStore {
     setPhone: (phone: string) => void;
     user: User | null;
     setUser: ({ user }: { user: User | null }) => void;
-    removeUser: () => void
+    removeUser: () => void;
 }
-const useAuthStore = create<UseAuthStore>()(devtools(immer((set) => ({
-    phone: "",
-    user: null,
-    setPhone: (phone: string) => {
-        set(
-            (state) => {
-                state.phone = phone
+const useAuthStore = create<UseAuthStore>()(
+    devtools(
+        immer((set) => ({
+            phone: "",
+            user: null,
+            setPhone: (phone: string) => {
+                set((state) => {
+                    state.phone = phone;
+                });
             },
-        );
-    },
-    setUser: ({ user }: { user: User | null }) => {
-        set(
-            (state) => {
-                state.user = user
+            setUser: ({ user }: { user: User | null }) => {
+                set((state) => {
+                    state.user = user;
+                });
             },
-        );
-    },
-    removeUser: () => {
-        set(
-            (state) => {
-                state.user = null
+            removeUser: () => {
+                set((state) => {
+                    state.user = null;
+                });
             },
-        );
-    },
-
-}))));
+        }))
+    )
+);
 
 export default useAuthStore;

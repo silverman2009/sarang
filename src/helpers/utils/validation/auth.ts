@@ -4,22 +4,19 @@ export const validationSchemaSignUp = Yup.object({
     lastName: Yup.string().required("فیلد اجباری است"),
     sex: Yup.string().required("فیلد اجباری است"),
     password: Yup.string().required("فیلد اجباری است"),
-    repPassword: Yup.string().required("فیلد اجباری است")
-        .oneOf([Yup.ref('password'), "null"], 'تکرار رمز عبور با رمز عبور یکسان نیست'),
+    repPassword: Yup.string()
+        .required("فیلد اجباری است")
+        .oneOf([Yup.ref("password"), "null"], "تکرار رمز عبور با رمز عبور یکسان نیست"),
 });
-
-
-
 
 export const validationSchemaGetOtp = Yup.object({
     phone: Yup.string().required("فیلد اجباری است"),
-})
+});
 
 export const validationSchemaForgetPass = Yup.object({
     phone: Yup.string().required("فیلد اجباری است"),
-})
-
+});
 
 export const validationSchemaCheckCode = Yup.object({
-    Code: Yup.string().required("فیلد اجباری است")
-})
+    Code: Yup.string().required("فیلد اجباری است"),
+});

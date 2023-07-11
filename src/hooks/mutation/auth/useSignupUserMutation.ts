@@ -6,10 +6,10 @@ import { SignupUser } from "@/types/Auth";
 import { useRouter } from "next/navigation";
 
 const useSignupUserMutation = () => {
-    const router = useRouter()
+    const router = useRouter();
     return useMutation(async (data: SignupUser) => await signupUser(data), {
         onSuccess: async function ({}) {
-            router.push("/auth/signin")
+            router.push("/auth/signin");
         },
         onError: async function (error) {
             errorToast((error as AxiosError<any>)?.response?.data.message);

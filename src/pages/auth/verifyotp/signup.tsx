@@ -13,23 +13,23 @@ import { validationSchemaCheckCode } from "@/helpers/utils/validation/auth";
 import useVerifyCodeSignupMutation from "@/hooks/mutation/auth/useVerifyCodeSignupMutation";
 import useAuthStore from "@/stores/auth-store";
 import Lottie from "lottie-react";
-import Loading from "@/assets/images/loading.json"
+import Loading from "@/assets/images/loading.json";
 import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 const VerifyOtp = () => {
-    const { phone } = useAuthStore()
-    const { mutate, isError, error, isLoading } = useVerifyCodeSignupMutation()
+    const { phone } = useAuthStore();
+    const { mutate, isError, error, isLoading } = useVerifyCodeSignupMutation();
     const router = useRouter();
     const formik = useFormik({
         initialValues: initialValuesCheckCode,
         validationSchema: validationSchemaCheckCode,
         onSubmit: (values) => {
-            mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone) })
-        }
-    })
+            mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone) });
+        },
+    });
 
     useEffect(() => {
-        if (!phone) return router.back()
-    }, [])
+        if (!phone) return router.back();
+    }, []);
 
     return (
         <div className="flex flex-col justify-between h-screen">
@@ -61,15 +61,13 @@ const VerifyOtp = () => {
                     </div>
                 </div>
             </div>
-            {
-                isError &&
+            {isError && (
                 <div className="flex justify-center items-center flex-col">
                     <Warr_iocn fill="#" />
                     {/* @ts-ignore */}
                     <p className="text-red-500 font-artin-regular">{error.response?.data?.Message}</p>
                 </div>
-            }
-
+            )}
 
             <span></span>
 

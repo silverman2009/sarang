@@ -1,31 +1,31 @@
-import Image from 'next/image'
-import { useRouter } from 'next/navigation'
-import React from 'react'
-import { BsArrowLeftShort } from 'react-icons/bs'
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import React from "react";
+import { BsArrowLeftShort } from "react-icons/bs";
 import Logo from "@/assets/images/logo.svg";
-import { useFormik } from 'formik';
-import Input from '@/components/common/Input';
-import Button from '@/components/common/Button';
-import useForgetPassMutation from '@/hooks/mutation/auth/useForgetPassMutation';
-import { validationSchemaForgetPass } from '@/helpers/utils/validation/auth';
-import { toEnglishNumber } from '@/helpers/utils/toFarsiNumber';
-import { Warr_iocn } from '@/components/global/icons';
+import { useFormik } from "formik";
+import Input from "@/components/common/Input";
+import Button from "@/components/common/Button";
+import useForgetPassMutation from "@/hooks/mutation/auth/useForgetPassMutation";
+import { validationSchemaForgetPass } from "@/helpers/utils/validation/auth";
+import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
+import { Warr_iocn } from "@/components/global/icons";
 
 const Forgetpass = () => {
-    const { mutate, isError, isSuccess, data, error } = useForgetPassMutation()
-    const router = useRouter()
+    const { mutate, isError, isSuccess, data, error } = useForgetPassMutation();
+    const router = useRouter();
     const formik = useFormik({
         initialValues: {
-            phone: ""
+            phone: "",
         },
         validationSchema: validationSchemaForgetPass,
         onSubmit: (values) => {
-            mutate({ phone: toEnglishNumber(values.phone) })
-            formik.resetForm()
-        }
-    })
+            mutate({ phone: toEnglishNumber(values.phone) });
+            formik.resetForm();
+        },
+    });
     return (
-        <div className='bg-white min-h-screen flex flex-col justify-between'>
+        <div className="bg-white min-h-screen flex flex-col justify-between">
             <div>
                 <div className="bg_header text-white rounded-b-[26px] overflow-hidden container_header_signup">
                     <div className="layout py-14 flex   items-center justify-between">
@@ -39,38 +39,37 @@ const Forgetpass = () => {
                     </div>
                 </div>
 
-
-                <div className='layout mt-20'>
-                    <h1 className='font-artin-black text-xl'>فراموش کردن رمز عبور</h1>
-                    <p className='text-gray-400 font-artin-regular pt-1'>لطفا شماره تلفن خود را وارد کنید تا رمز عبور برای شما فرستاده شود.</p>
-                    <div className='mt-10'>
-                        <Input ltr classInput='bg-[#EFF2F6]' label='شماره تلفن همراه' formik={formik} name='phone' />
+                <div className="layout mt-20">
+                    <h1 className="font-artin-black text-xl">فراموش کردن رمز عبور</h1>
+                    <p className="text-gray-400 font-artin-regular pt-1">
+                        لطفا شماره تلفن خود را وارد کنید تا رمز عبور برای شما فرستاده شود.
+                    </p>
+                    <div className="mt-10">
+                        <Input ltr classInput="bg-[#EFF2F6]" label="شماره تلفن همراه" formik={formik} name="phone" />
                     </div>
                 </div>
             </div>
 
-            {
-                isError &&
+            {isError && (
                 <div className="flex flex-col gap-3 items-center justify-center">
                     <Warr_iocn />
                     {/* @ts-ignore */}
                     <p className="text-center text-orange_light font-artin-light">{error?.response.data.Message}</p>
                 </div>
-            }
-            {
-                isSuccess &&
+            )}
+            {isSuccess && (
                 <div className="flex flex-col gap-3 items-center justify-center">
-                    <Warr_iocn fill='#19B500' />
+                    <Warr_iocn fill="#19B500" />
                     {/* @ts-ignore */}
                     <p className="text-center text-[#19B500] font-artin-light">{data}</p>
                 </div>
-            }
+            )}
 
-            <div className='layout mb-10'>
-                <Button onClick={formik.handleSubmit} classBtn='bg-[#464646] text-white' name='درخواست کد بازیابی' />
+            <div className="layout mb-10">
+                <Button onClick={formik.handleSubmit} classBtn="bg-[#464646] text-white" name="درخواست کد بازیابی" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Forgetpass
+export default Forgetpass;

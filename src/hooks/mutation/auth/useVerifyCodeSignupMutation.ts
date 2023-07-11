@@ -4,16 +4,14 @@ import { CheckCode } from "@/types/Auth";
 import { useParams, useRouter } from "next/navigation";
 
 const useVerifyCodeSignupMutation = () => {
-    const params = useParams()
-    const router = useRouter()
+    const params = useParams();
+    const router = useRouter();
 
     return useMutation(async (data: CheckCode) => await checkCodeSignup(data), {
         onSuccess: async function () {
-
-            router.push("/auth/signup")
+            router.push("/auth/signup");
         },
         onError: async function (error) {
-
             // errorToast((error as AxiosError<any>)?.response?.data.Message);
         },
     });

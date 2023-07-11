@@ -8,7 +8,6 @@ interface Props {
     isLoading: boolean;
 }
 const Level1 = ({ formik, isLoading }: Props) => {
-
     return (
         <div className="flex-1 h-full flex justify-between gap-14 flex-col">
             <div className="layout mt-8">
@@ -49,7 +48,12 @@ const Level1 = ({ formik, isLoading }: Props) => {
                 </form>
             </div>
             <div className="layout">
-                <Button isLoading={isLoading} onClick={formik.handleSubmit} classBtn="mb-5 bg-[#464646] text-white" name="ثبت نام" />
+                <Button
+                    isLoading={isLoading}
+                    onClick={formik.handleSubmit}
+                    classBtn="mb-5 bg-[#464646] text-white"
+                    name="ثبت نام"
+                />
             </div>
         </div>
     );

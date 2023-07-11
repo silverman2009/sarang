@@ -63,3 +63,15 @@ export const states = [
     { _id: "6048700ec917be5bd82d3d7d", state: "همدان" },
     { _id: "6048700ec917be5bd82d3d7e", state: "یزد" },
 ];
+
+
+
+
+export const PaymentTypeEnum = {
+    USER_SCAN_QR_CODE: "اسکن QR کد",
+    USER_SCAN_QR_PAYMENT_GATEWAY: "اسکن QR کد و پرداخت از طریق درگاه پرداخت",
+    USER_DRIVER_CODE: "وارد کردن کد راننده",
+    USER_DRIVER_CODE_PAYMENT_GATEWAY: "وارد کردن کد راننده و پرداخت از طریق درگاه پرداخت",
+    DRIVER_USER_CODE: "وارد کردن کد مشتری",
+    DRIVER_SCAN_USER_CARD: "اسکن کارت مشتری به وسیله راننده",
+};

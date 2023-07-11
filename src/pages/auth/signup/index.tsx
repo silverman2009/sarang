@@ -11,28 +11,28 @@ import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Signup = () => {
-  const router = useRouter()
-  const { phone } = useAuthStore()
-  const { mutate, isLoading } = useSignupUserMutation()
-  const formik = useFormik({
-    initialValues: initialValuesSignUpUser,
-    validationSchema: validationSchemaSignUp,
-    onSubmit: (values) => {
-      const results = convertObjectEnglishNumber(values)
-      mutate({ ...results, phone:toEnglishNumber(phone) })
-    },
-  });
+    const router = useRouter();
+    const { phone } = useAuthStore();
+    const { mutate, isLoading } = useSignupUserMutation();
+    const formik = useFormik({
+        initialValues: initialValuesSignUpUser,
+        validationSchema: validationSchemaSignUp,
+        onSubmit: (values) => {
+            const results = convertObjectEnglishNumber(values);
+            mutate({ ...results, phone: toEnglishNumber(phone) });
+        },
+    });
 
-  useEffect(()=>{
-    if(!phone) return router.push("/auth/signup/get-otp") 
-  },[])
+    useEffect(() => {
+        if (!phone) return router.push("/auth/signup/get-otp");
+    }, []);
 
-  return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <HeaderSignup step={0} />
-      <Level1 formik={formik} isLoading={isLoading} />
-    </div>
-  );
+    return (
+        <div className="flex flex-col min-h-screen bg-white">
+            <HeaderSignup step={0} />
+            <Level1 formik={formik} isLoading={isLoading} />
+        </div>
+    );
 };
 
 export default Signup;

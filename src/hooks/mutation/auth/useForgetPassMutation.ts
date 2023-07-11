@@ -1,10 +1,10 @@
-import { useMutation } from "react-query"
+import { useMutation } from "react-query";
 import { forgetPass, loginUser } from "@/services/auth";
 import { ForgetPass, LoginUser } from "@/types/Auth";
 import { useRouter } from "next/navigation";
 
 const useForgetPassMutation = () => {
-    const router = useRouter()
+    const router = useRouter();
     return useMutation(async (data: ForgetPass) => await forgetPass(data), {
         onSuccess: async function ({}) {
             // router.push("/auth/signin")

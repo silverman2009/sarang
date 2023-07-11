@@ -11,7 +11,6 @@ interface Props {
     isPass?: boolean;
 }
 const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
-
     return (
         <div>
             <div className="rounded-b-[26px] z-30  shadow-md text-white bg_header bg_line h-fit flex flex-col py-10 justify-center items-center">
@@ -37,10 +36,9 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                                 icon={Phone}
                                 placeholder="لطفا شماره تماس خود را وارد کنید"
                             />
-                            {
-                                isLogin &&
+                            {isLogin && (
                                 <Input
-                                    type="password" 
+                                    type="password"
                                     formik={formik}
                                     name="password"
                                     classInputTag="placeholder:!text-[#fff]"
@@ -49,15 +47,19 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                                     icon={Phone}
                                     placeholder="لطفا رمز عبور خود را وارد کنید"
                                 />
-                            }
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
-            {
-                isPass &&
-                <Link href="/auth/forgetpass" className="text-black cursor-pointer relative !z-[9999] font-artin-bold px-4 flex justify-end pt-3">فراموشی رمزعبور؟</Link>
-            }
+            {isPass && (
+                <Link
+                    href="/auth/forgetpass"
+                    className="text-black cursor-pointer relative !z-[9999] font-artin-bold px-4 flex justify-end pt-3"
+                >
+                    فراموشی رمزعبور؟
+                </Link>
+            )}
         </div>
     );
 };

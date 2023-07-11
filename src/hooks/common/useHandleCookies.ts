@@ -8,7 +8,7 @@ const useHandleCookies = () => {
     const removeUser = useAuthStore((s) => s.removeUser);
     const [cookies, _, removeCookies] = useCookies(["token", "jwt"]);
     const { push } = useRouter();
-    const pathname = usePathname()
+    const pathname = usePathname();
 
     useEffect(() => {
         if (!cookies.token && !pathname.startsWith("/auth")) {

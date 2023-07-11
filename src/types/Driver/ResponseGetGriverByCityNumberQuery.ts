@@ -1,3 +1,3 @@
 import { Driver } from ".";
 
-export type ResponseGetGriverByCityNumberQuery = Driver
+export type ResponseGetGriverByCityNumberQuery = Driver;
