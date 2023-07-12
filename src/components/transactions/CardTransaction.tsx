@@ -12,7 +12,7 @@ const CardTransaction = ({ transaction }: Props) => {
             <div className="flex items-center justify-between border-b border-gray-200 pb-2">
                 <div className="flex items-center gap-2 text-gray-700">
                     <PiCoins size={24} />
-                    <p className="font-artin-bold text-lg">مبلغ شارژ :</p>
+                    <p className="font-artin-bold text-lg">مبلغ تراکنش :</p>
                     <p className="font-artin-regular text-orange_light">{transaction.Amount}</p>
                 </div>
                 <p className="font-estedad-bold text-[12px] flex items-center gap-2 text-gray-600">

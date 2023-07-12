@@ -4,6 +4,7 @@ import Phone from "@/assets/images/phone.svg";
 import Image from "next/image";
 import Logo from "@/assets/images/logo.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 interface Props {
     text?: string;
     formik?: any;
@@ -11,6 +12,7 @@ interface Props {
     isPass?: boolean;
 }
 const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
+    const pathname = usePathname()
     return (
         <div>
             <div className="rounded-b-[26px] z-30  shadow-md text-white bg_header bg_line h-fit flex flex-col py-5 justify-center items-center">
@@ -53,7 +55,7 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                 </div>
                 {isPass && (
                     <Link
-                        href="/auth/forgetpass"
+                        href= {pathname.startsWith("/driver")? "/driver/auth/forgetpass" :"/user/auth/forgetpass"}
                         className="text-black w-[90%] mx-auto flex justify-end cursor-pointer  relative !z-[9999] font-artin-bold px-4 pt-3"
                     >
                         فراموشی رمزعبور؟

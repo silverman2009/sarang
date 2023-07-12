@@ -15,7 +15,7 @@ const useHandleCookies = () => {
             delete axios.defaults.headers.common["x-access-token"];
             removeCookies("token", { path: "/" });
             removeUser();
-            push("/user/auth/signin");
+            push("/");
         }
     }, [cookies.token]);
 };

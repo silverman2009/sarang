@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import ProfileInfo from "@/components/common/ProfileInfo";
@@ -10,7 +11,6 @@ import { validationSchemaPayWitCode } from "@/helpers/utils/validation/pay";
 import useGetDriverByCityNumberQuery from "@/hooks/query/drivers/useGetDriverByCityNumberQuery";
 import useDriverStore from "@/stores/driver-store";
 import { useFormik } from "formik";
-import React from "react";
 
 const Code = () => {
     const { setPaymentTypeEnum } = useDriverStore();
