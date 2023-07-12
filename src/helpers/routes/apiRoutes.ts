@@ -15,6 +15,7 @@ const apiRoutes = {
     fare: "/fares",
     user: {
         trip: "/trips/user",
+        my_transactions: "/user/transactions",
     },
 };
 

@@ -24,9 +24,9 @@ export const MenuItem = [
         url: "/",
     },
     {
-        name: "کیف پول",
+        name: "تاریخچه تراکنش",
         icon: Wallet_icon,
-        url: "/wallet",
+        url: "/transactions",
     },
 ];
 

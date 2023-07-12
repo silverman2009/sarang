@@ -11,8 +11,6 @@ import { useFormik } from "formik";
 import { initialValuesCheckCode } from "@/helpers/utils/initialValues";
 import { validationSchemaCheckCode } from "@/helpers/utils/validation/auth";
 import useAuthStore from "@/stores/auth-store";
-import Lottie from "lottie-react";
-import Loading from "@/assets/images/loading.json";
 import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 import useVerifyCodeLoginMutation from "@/hooks/mutation/auth/useVerifyCodeLoginMutation copy";
 const VerifyOtpLogin = () => {
@@ -71,7 +69,7 @@ const VerifyOtpLogin = () => {
 
             <span></span>
             <div className="layout">
-                <Button onClick={formik.handleSubmit} classBtn="mb-4 bg-[#464646] text-white" name="تائید کد" />
+                <Button isLoading={isLoading} onClick={formik.handleSubmit} classBtn="mb-4 bg-[#464646] text-white" name="تائید کد" />
             </div>
         </div>
     );

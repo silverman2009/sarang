@@ -2,6 +2,7 @@ import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import ProfileInfo from "@/components/common/ProfileInfo";
 import InformationPayWithCode from "@/components/pay/InformationPayWithCode";
+import { PaymentTypeEnum } from "@/helpers/utils/data";
 import { initialValuesPayWithCode } from "@/helpers/utils/initialValues";
 import { toEnglishNumber, toFarsiNumber } from "@/helpers/utils/toFarsiNumber";
 import { validationSchemaPayWitCode } from "@/helpers/utils/validation/pay";
@@ -11,6 +12,7 @@ import { useFormik } from "formik";
 import React from "react";
 
 const Code = () => {
+    const {setPaymentTypeEnum} = useDriverStore()
     const { setCode } = useDriverStore();
     const { refetch, isLoading } = useGetDriverByCityNumberQuery();
     const formik = useFormik({
@@ -18,6 +20,7 @@ const Code = () => {
         validationSchema: validationSchemaPayWitCode,
         onSubmit: async (values) => {
             await setCode(toEnglishNumber(values.code));
+            setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE);
             refetch();
         },
     });

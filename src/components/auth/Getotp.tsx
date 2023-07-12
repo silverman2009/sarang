@@ -13,7 +13,7 @@ interface Props {
 const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
     return (
         <div>
-            <div className="rounded-b-[26px] z-30  shadow-md text-white bg_header bg_line h-fit flex flex-col py-10 justify-center items-center">
+            <div className="rounded-b-[26px] z-30  shadow-md text-white bg_header bg_line h-fit flex flex-col py-5 justify-center items-center">
                 <div className="w-[85%] mx-auto">
                     <Image className="mx-auto" src={Logo} alt="لوگو" />
                     <div className="pt-5 flex flex-col gap-4 justify-center items-center">
@@ -24,7 +24,7 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                             <span className="w-[0.14rem] h-[0.14rem] bg-white rounded-full"></span>
                         </div>
                         <h5 className="font-artin-black text-3xl -mt-1">خوش اومدین</h5>
-                        <div className="mt-14 flex flex-col gap-4 w-full">
+                        <div className="mt-8 flex flex-col  gap-4 w-full">
                             {text && <p className="font-artin-regular pb-3">{text}</p>}
                             <Input
                                 formik={formik}
@@ -51,15 +51,16 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                         </div>
                     </div>
                 </div>
+                {isPass && (
+                    <Link
+                        href="/auth/forgetpass"
+                        className="text-black w-[90%] mx-auto flex justify-end cursor-pointer  relative !z-[9999] font-artin-bold px-4 pt-3"
+                    >
+                        فراموشی رمزعبور؟
+                    </Link>
+                )}
             </div>
-            {isPass && (
-                <Link
-                    href="/auth/forgetpass"
-                    className="text-black cursor-pointer relative !z-[9999] font-artin-bold px-4 flex justify-end pt-3"
-                >
-                    فراموشی رمزعبور؟
-                </Link>
-            )}
+
         </div>
     );
 };
