@@ -70,7 +70,12 @@ const VerifyOtp = () => {
             <span></span>
 
             <div className="layout">
-                <Button isLoading={isLoading} onClick={formik.handleSubmit} classBtn="mb-4 bg-[#464646] text-white" name="تائید کد" />
+                <Button
+                    isLoading={isLoading}
+                    onClick={formik.handleSubmit}
+                    classBtn="mb-4 bg-[#464646] text-white"
+                    name="تائید کد"
+                />
             </div>
         </div>
     );

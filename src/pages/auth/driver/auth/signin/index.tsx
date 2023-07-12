@@ -41,7 +41,7 @@ const Signin = () => {
                     onClick={formik.handleSubmit}
                     classBtn="bg-[#464646] text-white"
                     name="ارسال کد تائید"
-                />                
+                />
             </div>
         </div>
     );

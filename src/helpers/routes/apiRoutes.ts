@@ -12,6 +12,7 @@ const apiRoutes = {
     },
     driver: {
         getDriverByCityNumber: "/driver",
+        me: "/driver",
     },
     fare: "/fares",
     user: {

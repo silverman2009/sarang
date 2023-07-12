@@ -42,14 +42,14 @@ const Home = () => {
                 <div className="flex mt-10 flex-col  gap-5 w-full ">
                     <Link
                         className="font-artin-regular text-xl bg-orange_light text-white border py-3 rounded-lg flex justify-center items-center gap-2"
-                        href="/driver/auth/signin"
+                        href="/auth/driver/auth/signin"
                     >
                         <FaCar size={32} />
                         ورود به عنوان راننده
                     </Link>
                     <Link
                         className="font-artin-regular border text-xl py-3 text-white bg_profile rounded-lg justify-center items-center flex gap-2"
-                        href="/user/auth/signin"
+                        href="/auth/user/auth/signin"
                     >
                         <User_icon size="29" fill="#fff" />
                         ورود به عنوان کاربر

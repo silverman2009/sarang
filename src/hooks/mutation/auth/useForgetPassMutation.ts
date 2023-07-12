@@ -7,15 +7,13 @@ import { errorToast } from "@/helpers/utils/error";
 
 const useForgetPassMutation = () => {
     const router = useRouter();
-    const pathname = usePathname()
+    const pathname = usePathname();
     return useMutation(async (data: ForgetPass) => await forgetPass(data), {
-        onSuccess: async function ({ }) {
+        onSuccess: async function ({}) {
             if (pathname.startsWith("/driver")) {
-
-                router.push("/driver/auth/signin")
+                router.push("/auth/driver/auth/signin");
             } else {
-
-                router.push("/user/auth/signin")
+                router.push("/auth/user/auth/signin");
             }
         },
         onError: async function (error) {

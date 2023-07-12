@@ -32,6 +32,23 @@ export const MenuItem = [
     },
 ];
 
+export const MenuItemDriver = [
+    {
+        name: "پروفایل",
+        icon: User_icon,
+        url: "/driver/profile",
+    },
+    {
+        name: "خانه",
+        icon: Home_icons,
+        url: "/driver",
+    },
+    {
+        name: "تراکنش",
+        icon: Wallet_icon,
+        url: "/driver/transactions",
+    },
+];
 export const states = [
     { _id: "60486e2f98940cc14406ca54", state: "آذربایجان شرقی" },
     { _id: "60486f5098940cc14406cac6", state: "آذربایجان غربی" },

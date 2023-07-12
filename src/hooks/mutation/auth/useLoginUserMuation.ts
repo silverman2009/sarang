@@ -5,18 +5,16 @@ import { usePathname, useRouter } from "next/navigation";
 
 const useLoginUserMuation = () => {
     const router = useRouter();
-    const pathname = usePathname()
+    const pathname = usePathname();
     return useMutation(async (data: LoginUser) => await loginUser(data), {
-        onSuccess: async function ({ }) {
-            if (pathname.startsWith("/driver")) {
-
-                router.push("/driver/auth/verifyotp/login");
+        onSuccess: async function ({}) {
+            if (pathname === "/auth/driver/auth/signin") {
+                router.push("/auth/driver/auth/verifyotp/login");
             } else {
-
-                router.push("/user/auth/verifyotp/login");
+                router.push("/auth/user/auth/verifyotp/login");
             }
         },
-        onError: async function (error) { },
+        onError: async function (error) {},
     });
 };
 

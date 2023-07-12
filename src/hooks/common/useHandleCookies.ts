@@ -5,13 +5,13 @@ import { useEffect } from "react";
 import { useCookies } from "react-cookie";
 
 const useHandleCookies = () => {
+    const pathname = usePathname();
     const removeUser = useAuthStore((s) => s.removeUser);
     const [cookies, _, removeCookies] = useCookies(["token", "jwt"]);
     const { push } = useRouter();
-    const pathname = usePathname();
 
     useEffect(() => {
-        if (!cookies.token && !pathname.startsWith("/auth") && pathname !== "/") {
+        if (!cookies.token && !pathname.startsWith("/auth")) {
             delete axios.defaults.headers.common["x-access-token"];
             removeCookies("token", { path: "/" });
             removeUser();
