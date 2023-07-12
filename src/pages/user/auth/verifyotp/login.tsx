@@ -21,7 +21,7 @@ const VerifyOtpLogin = () => {
         initialValues: initialValuesCheckCode,
         validationSchema: validationSchemaCheckCode,
         onSubmit: (values) => {
-            mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone) });
+            mutate({ Code: Number(values.Code), Phone: toEnglishNumber(phone)! });
         },
     });
 
@@ -69,7 +69,12 @@ const VerifyOtpLogin = () => {
 
             <span></span>
             <div className="layout">
-                <Button isLoading={isLoading} onClick={formik.handleSubmit} classBtn="mb-4 bg-[#464646] text-white" name="تائید کد" />
+                <Button
+                    isLoading={isLoading}
+                    onClick={formik.handleSubmit}
+                    classBtn="mb-4 bg-[#464646] text-white"
+                    name="تائید کد"
+                />
             </div>
         </div>
     );

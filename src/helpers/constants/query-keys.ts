@@ -9,5 +9,5 @@ export const DRIVER = {
 
 export const USER = {
     GET_USER_TRIP: "get-user-trip",
-    GET_MY_TRANSACTIONS:"get-my-transactions"
+    GET_MY_TRANSACTIONS: "get-my-transactions",
 };

@@ -11,11 +11,11 @@ const useHandleCookies = () => {
     const pathname = usePathname();
 
     useEffect(() => {
-        if (!cookies.token && !pathname.startsWith("/auth")) {
+        if (!cookies.token && !pathname.startsWith("/auth") && pathname !== "/") {
             delete axios.defaults.headers.common["x-access-token"];
             removeCookies("token", { path: "/" });
             removeUser();
-            push("/auth/signin");
+            push("/user/auth/signin");
         }
     }, [cookies.token]);
 };

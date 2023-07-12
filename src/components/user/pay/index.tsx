@@ -10,10 +10,16 @@ const Pay = () => {
                 <LottieFiles />
                 <div className="layout ">
                     <div className="flex font-artin-regular h-[52px] gap-4">
-                        <button onClick={() => router.push("/pay/qr")} className="flex-1 bg-orange_light rounded-lg text-white">
+                        <button
+                            onClick={() => router.push("/user/pay/qr")}
+                            className="flex-1 bg-orange_light rounded-lg text-white"
+                        >
                             پرداخت با Qr
                         </button>
-                        <button onClick={() => router.push("/pay/code")} className="flex-1 border border-[#cecece] rounded-lg">
+                        <button
+                            onClick={() => router.push("/user/pay/code")}
+                            className="flex-1 border border-[#cecece] rounded-lg"
+                        >
                             پرداخت با کد شهری
                         </button>
                     </div>

@@ -55,7 +55,7 @@ export default function CustomRadioButton({ formik, name, list }: Props) {
     return (
         <FormControl>
             <span className="font-artin-regular block mb-1 pr-1 text-[#2F2F2F]">لطفا جنسیت خود را مشخص کنید</span>
-            <RadioGroup  aria-labelledby="demo-customized-radios" name={name}>
+            <RadioGroup aria-labelledby="demo-customized-radios" name={name}>
                 {list.map((item, i) => (
                     <FormControlLabel
                         checked={formik.values[name] === item.value}

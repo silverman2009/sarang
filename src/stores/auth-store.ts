@@ -3,7 +3,7 @@ import { immer } from "zustand/middleware/immer";
 import { devtools } from "zustand/middleware";
 import { User } from "@/types/User";
 interface UseAuthStore {
-    logoutDialog:boolean;
+    logoutDialog: boolean;
     phone: string;
     setPhone: (phone: string) => void;
     user: User | null;

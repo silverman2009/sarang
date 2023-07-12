@@ -1,5 +1,3 @@
-
-
 import { useQuery } from "react-query";
 import { USER } from "@/helpers/constants/query-keys";
 import { getMyTransactions, getUserTrip } from "@/services/user";

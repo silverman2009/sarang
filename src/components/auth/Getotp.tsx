@@ -60,7 +60,6 @@ const Getotp = ({ text, formik, isLogin, isPass }: Props) => {
                     </Link>
                 )}
             </div>
-
         </div>
     );
 };

@@ -18,17 +18,17 @@ export const MenuItem = [
     {
         name: "پروفایل",
         icon: User_icon,
-        url: "/profile",
+        url: "/user/profile",
     },
     {
         name: "صحفه اصلی",
         icon: Home_icons,
-        url: "/",
+        url: "/user",
     },
     {
         name: "تراکنش ",
         icon: Wallet_icon,
-        url: "/transactions",
+        url: "/user/transactions",
     },
 ];
 
@@ -75,42 +75,39 @@ export const PaymentTypeEnum = {
     DRIVER_SCAN_USER_CARD: "اسکن کارت مشتری به وسیله راننده",
 };
 
-
-
 export const MoreMenuUser = [
     {
-        name:"تنظمات مالی و کارت",
-        icon:BsFillCreditCardFill,
-        url:"/settings"
+        name: "تنظمات مالی و کارت",
+        icon: BsFillCreditCardFill,
+        url: "/user/settings",
     },
     {
-        name:"سفر‌ها",
-        icon:FaCar,
-        url:"/trip"
+        name: "سفر‌ها",
+        icon: FaCar,
+        url: "/user/trip",
     },
     {
-        name:"پشتیبانی",
-        icon:BiSupport,
-        url:"/support"
+        name: "پشتیبانی",
+        icon: BiSupport,
+        url: "/user/support",
     },
-]
-
+];
 
 export const social_media = [
     {
-        icon:BiLogoTelegram,
-        color:'#3390ec'
+        icon: BiLogoTelegram,
+        color: "#3390ec",
     },
     {
-        icon:IoLogoWhatsapp,
-        color:"#00a844"
+        icon: IoLogoWhatsapp,
+        color: "#00a844",
     },
     {
-        icon:BsTwitter,
-        color:"#0096f5"
+        icon: BsTwitter,
+        color: "#0096f5",
     },
     {
-        icon:BsDiscord,
-        color:"#626262"
+        icon: BsDiscord,
+        color: "#626262",
     },
-]
+];

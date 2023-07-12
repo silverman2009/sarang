@@ -3,6 +3,7 @@ import { useRouter } from "next/navigation";
 import { getDriverByCityName } from "@/services/driver";
 import { DRIVER } from "@/helpers/constants/query-keys";
 import useDriverStore from "@/stores/driver-store";
+import { errorToast } from "@/helpers/utils/error";
 
 const useGetDriverByCityNumberQuery = () => {
     const { code } = useDriverStore();
@@ -14,10 +15,13 @@ const useGetDriverByCityNumberQuery = () => {
         staleTime: 0,
         retry: 0,
         onSuccess: async (data) => {
+            if (!data?.CarRoute?.Name) return;
             await setDriver(data);
-            router.push(`/driver/info`);
+            router.push(`/user/driver/info`);
         },
-        onError: (error) => {},
+        onError: (error) => {
+            return errorToast("راننده ای یا این کد شهری یافت نشد");
+        },
     });
 };
 

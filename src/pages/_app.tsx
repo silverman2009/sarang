@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <>
             <GlobalContextProvider>
                 <Component {...pageProps} />
-                <Logout/>
+                <Logout />
             </GlobalContextProvider>
         </>
     );

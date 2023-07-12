@@ -13,7 +13,7 @@ const useVerifyCodeLoginMutation = () => {
         onSuccess: async function ({ token }) {
             setCookies("token", token, { path: "/" });
             axios.defaults.headers.common["x-access-token"] = `${token}`;
-            router.push("/");
+            router.push("/user");
         },
         onError: async function (error) {},
     });

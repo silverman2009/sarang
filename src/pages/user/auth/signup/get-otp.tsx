@@ -19,7 +19,7 @@ const GetOtpSignup = () => {
             refetch();
         },
     });
-    const { refetch, isLoading, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone));
+    const { refetch, isLoading, isError, error } = useGetCodeActivationQuery(toEnglishNumber(formik.values.phone)!);
     return (
         <>
             <div className="h-screen flex flex-col justify-between">
