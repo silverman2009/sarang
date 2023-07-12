@@ -15,3 +15,13 @@ export type Transaction = {
     "Description": string,
     "createdAt": string
 }
+
+
+export type EditUser = {
+    updatedField:{
+    FirstName: string;
+    LastName: string;
+    Sex: string;
+}
+ 
+}

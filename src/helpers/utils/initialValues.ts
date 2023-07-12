@@ -26,3 +26,10 @@ export const initialValuesFare = {
 export const initialValuesPayWithCode = {
     code: "",
 };
+
+
+export const initialValuesEditProfile = {
+    FileName: "",
+    LastName:"",
+    Sex:"",
+}

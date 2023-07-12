@@ -2,10 +2,11 @@ import ImageProfile from '@/components/common/ImageProfile'
 import { Edit_iocn, Wallet_icon } from '@/components/global/icons'
 import { toFarsiNumber } from '@/helpers/utils/toFarsiNumber'
 import useAuthStore from '@/stores/auth-store'
+import Link from 'next/link'
 import React from 'react'
 
 const InfoUser = () => {
-    const {user} = useAuthStore()
+    const { user } = useAuthStore()
     return (
         <>
 
@@ -20,7 +21,7 @@ const InfoUser = () => {
                             </p>
                         </div>
                     </div>
-                    <Edit_iocn />
+                    <Link href="/profile/edit"> <Edit_iocn /></Link>
                 </div>
                 <div className='flex items-center justify-between '>
                     <div className='flex items-center gap-2'>

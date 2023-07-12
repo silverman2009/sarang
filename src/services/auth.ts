@@ -3,6 +3,7 @@ import client from "./utils/client";
 import routes from "@/helpers/routes/apiRoutes";
 import { ResponseGetCityQuery } from "@/types/Auth/ResponseGetCityQuery";
 import { CheckCode, ForgetPass, LoginUser, SignupUser } from "@/types/Auth";
+import { EditUser } from "@/types/User";
 
 export const getCity = async (id: string) => {
     const url = getRoute({ route: `${routes.auth.getCity}/${id}/cities` });
@@ -33,4 +34,9 @@ export const checkCodeSignup = async (data: CheckCode) => {
 export const checkCodeLogin = async (data: CheckCode) => {
     const url = getRoute({ route: `${routes.auth.checkCodeLogin}` });
     return await client<{ token: string }>({ url, method: "POST", data });
+};
+
+export const editUserInfo = async (data: EditUser) => {
+    const url = getRoute({ route: `${routes.auth.edit_user}` });
+    return await client<string>({ url, method: "PATCH", data });
 };
