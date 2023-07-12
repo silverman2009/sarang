@@ -3,16 +3,19 @@ import { immer } from "zustand/middleware/immer";
 import { devtools } from "zustand/middleware";
 import { User } from "@/types/User";
 interface UseAuthStore {
+    logoutDialog:boolean;
     phone: string;
     setPhone: (phone: string) => void;
     user: User | null;
     setUser: ({ user }: { user: User | null }) => void;
     removeUser: () => void;
+    setLogoutDialog: () => void;
 }
 const useAuthStore = create<UseAuthStore>()(
     devtools(
         immer((set) => ({
             phone: "",
+            logoutDialog: false,
             user: null,
             setPhone: (phone: string) => {
                 set((state) => {
@@ -27,6 +30,11 @@ const useAuthStore = create<UseAuthStore>()(
             removeUser: () => {
                 set((state) => {
                     state.user = null;
+                });
+            },
+            setLogoutDialog: () => {
+                set((state) => {
+                    state.logoutDialog = !state.logoutDialog;
                 });
             },
         }))

@@ -1,6 +1,8 @@
-import { Menu_icon, Wallet_icon } from "@/components/global/icons";
-import { BsClockHistory } from "react-icons/bs";
-import { FaCarSide } from "react-icons/fa";
+import { Home_icons, User_icon, Wallet_icon } from "@/components/global/icons";
+import { BiLogoTelegram, BiSupport } from "react-icons/bi";
+import { BsDiscord, BsFillCreditCardFill, BsTwitter } from "react-icons/bs";
+import { FaCar } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
 export const sexPerson = [
     {
         value: "مرد",
@@ -14,17 +16,17 @@ export const sexPerson = [
 
 export const MenuItem = [
     {
-        name: "سفر‌ها",
-        icon: FaCarSide,
-        url: "/trip",
+        name: "پروفایل",
+        icon: User_icon,
+        url: "/profile",
     },
     {
         name: "صحفه اصلی",
-        icon: Menu_icon,
+        icon: Home_icons,
         url: "/",
     },
     {
-        name: "تاریخچه تراکنش",
+        name: "تراکنش ",
         icon: Wallet_icon,
         url: "/transactions",
     },
@@ -72,3 +74,43 @@ export const PaymentTypeEnum = {
     DRIVER_USER_CODE: "وارد کردن کد مشتری",
     DRIVER_SCAN_USER_CARD: "اسکن کارت مشتری به وسیله راننده",
 };
+
+
+
+export const MoreMenuUser = [
+    {
+        name:"تنظمات مالی و کارت",
+        icon:BsFillCreditCardFill,
+        url:"/settings"
+    },
+    {
+        name:"سفر‌ها",
+        icon:FaCar,
+        url:"/trip"
+    },
+    {
+        name:"پشتیبانی",
+        icon:BiSupport,
+        url:"/support"
+    },
+]
+
+
+export const social_media = [
+    {
+        icon:BiLogoTelegram,
+        color:'#3390ec'
+    },
+    {
+        icon:IoLogoWhatsapp,
+        color:"#00a844"
+    },
+    {
+        icon:BsTwitter,
+        color:"#0096f5"
+    },
+    {
+        icon:BsDiscord,
+        color:"#626262"
+    },
+]

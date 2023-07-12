@@ -12,7 +12,7 @@ const useHandleCookies = () => {
 
     useEffect(() => {
         if (!cookies.token && !pathname.startsWith("/auth")) {
-            delete axios.defaults.headers.common["Authorization"];
+            delete axios.defaults.headers.common["x-access-token"];
             removeCookies("token", { path: "/" });
             removeUser();
             push("/auth/signin");
