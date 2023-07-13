@@ -8,7 +8,7 @@ const Trip = () => {
     const { isLoading, data } = useGetTripUserQuery();
     return (
         <div>
-            <ProfileInfo />
+            <ProfileInfo back />
             <div>
                 {isLoading ? (
                     <p className="text-center font-artin-regular mt-10">در حال گرفتن اطلاعات ...</p>
@@ -20,7 +20,6 @@ const Trip = () => {
                     </div>
                 )}
             </div>
-            <Menu />
         </div>
     );
 };

@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="h-[60vh] flex  justify-center items-center">
             <div className="flex-col gap-20 flex">
-                 <LottiePlayer className="mt-10" animationData={Taxi} /> 
+                 <LottiePlayer className="mt-10 h-[300px]" animationData={Taxi} /> 
                 <div className="layout ">
                     <div className="flex font-artin-regular h-[52px] gap-4">
                         <button

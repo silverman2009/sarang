@@ -5,12 +5,11 @@ import Input from "@/components/common/Input";
 import { useFormik } from "formik";
 import PlaqueTaxi from "@/components/driver/PlaqueTaxi";
 import Button from "@/components/common/Button";
-import InfoDriverProfile from "@/components/driver/InfoDriverProfile";
 import useFarePaymentMutation from "@/hooks/mutation/Fare/useFarePaymentMutation";
 import { initialValuesFare } from "@/helpers/utils/initialValues";
 import { variantSchemaFare } from "@/helpers/utils/validation/fare";
 import { useRouter } from "next/navigation";
-const InfoDriver = () => {
+const InfoUser = () => {
     const { mutate, isLoading } = useFarePaymentMutation();
     const [count, setCount] = useState(1);
     const { driver, paymentTypeEnum } = useDriverStore();
@@ -50,11 +49,11 @@ const InfoDriver = () => {
         }
     };
 
-    useEffect(() => {
-        if (!driver?.CarRoute.Name) {
-            router.push("/user/pay/code");
-        }
-    }, [driver]);
+    // useEffect(() => {
+    //     if (!driver?.CarRoute.Name) {
+    //         router.push("/");
+    //     }
+    // }, [driver]);
 
     return (
         <div className="min-h-screen bg-white flex flex-col justify-between gap-20">
@@ -63,10 +62,10 @@ const InfoDriver = () => {
                     مشخصات راننده و پرداخت
                 </h1>
                 <div className="layout">
-                    <InfoDriverProfile />
+                    {/* <InfoUserProfile /> */}
                     {/* type car */}
                     <PlaqueTaxi />
-                    {driver?.CarRoute.Name === "چرخشی" ? (
+                    {true? (
                         <div className="mt-10">
                             <Input
                                 ltr
@@ -122,4 +121,4 @@ const InfoDriver = () => {
     );
 };
 
-export default InfoDriver;
+export default InfoUser;
