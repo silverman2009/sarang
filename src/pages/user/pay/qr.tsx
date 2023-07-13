@@ -22,7 +22,7 @@ const Scan_qr = () => {
                     </div>
                 </div>
             ) : (
-                <QrCode />
+                <QrCode facingMode="environment"/>
             )}
         </>
     );
