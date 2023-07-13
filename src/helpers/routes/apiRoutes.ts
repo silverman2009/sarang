@@ -13,6 +13,7 @@ const apiRoutes = {
     driver: {
         getDriverByCityNumber: "/driver",
         me: "/driver",
+        get_userInfo_by_phone: "/drivers/users",
     },
     fare: "/fares",
     user: {

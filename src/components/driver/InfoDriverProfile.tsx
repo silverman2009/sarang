@@ -3,9 +3,11 @@ import React from "react";
 import { Location_icon } from "../global/icons";
 import User from "@/assets/images/user.png";
 import useDriverStore from "@/stores/driver-store";
+import { usePathname } from "next/navigation";
 
 const InfoDriverProfile = () => {
     const { driver } = useDriverStore();
+    const pathname = usePathname();
 
     return (
         <div className="flex items-center gap-2 mt-8 ">
@@ -14,7 +16,15 @@ const InfoDriverProfile = () => {
             </div>
             <div className="flex flex-col gap-2">
                 <p className="font-estedad-bold">
-                    {driver?.Firstname} {driver?.LastName}
+                    {pathname.startsWith("/driver") ? (
+                        <span>
+                            {driver?.user.FirstName} {driver?.user.LastName}
+                        </span>
+                    ) : (
+                        <span>
+                            {driver?.Firstname} {driver?.LastName}
+                        </span>
+                    )}
                 </p>
                 <div className="flex gap-2 items-center">
                     <Location_icon />

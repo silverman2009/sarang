@@ -12,3 +12,7 @@ export const getDriver = async () => {
     const url = getRoute({ route: `${routes.driver.me}` });
     return await client<any>({ url, method: "GET" });
 };
+export const getUserInfoByPhone = async (phone: string) => {
+    const url = getRoute({ route: `${routes.driver.get_userInfo_by_phone}/${phone}` });
+    return await client<any>({ url, method: "GET" });
+};

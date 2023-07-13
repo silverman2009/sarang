@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import useDriverStore from "@/stores/driver-store";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Input from "@/components/common/Input";
 import { useFormik } from "formik";
@@ -8,12 +9,16 @@ import Button from "@/components/common/Button";
 import useFarePaymentMutation from "@/hooks/mutation/Fare/useFarePaymentMutation";
 import { initialValuesFare } from "@/helpers/utils/initialValues";
 import { variantSchemaFare } from "@/helpers/utils/validation/fare";
-import { useRouter } from "next/navigation";
+import InfoDriverProfile from "@/components/driver/InfoDriverProfile";
+import { HiOutlineArrowRight } from "react-icons/hi";
+import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 const InfoUser = () => {
     const { mutate, isLoading } = useFarePaymentMutation();
     const [count, setCount] = useState(1);
-    const { driver, paymentTypeEnum } = useDriverStore();
+    const { driver, paymentTypeEnum, setCode, setPhone } = useDriverStore();
     const router = useRouter();
+    const pathname = usePathname();
     const formik = useFormik({
         initialValues: initialValuesFare,
         validationSchema: variantSchemaFare,
@@ -49,23 +54,34 @@ const InfoUser = () => {
         }
     };
 
-    // useEffect(() => {
-    //     if (!driver?.CarRoute.Name) {
-    //         router.push("/");
-    //     }
-    // }, [driver]);
+    useEffect(() => {
+        if (!driver?.CarRoute.Name) {
+            if (pathname.startsWith("/driver")) {
+                router.push("/driver");
+            } else {
+                router.push("/user");
+            }
+        }
+    }, [driver]);
+
+    const onClickBackPgae = () => {
+        setCode("");
+        setPhone("");
+        router.back();
+    };
 
     return (
         <div className="min-h-screen bg-white flex flex-col justify-between gap-20">
             <div>
-                <h1 className="text-center font-artin-black text-2xl border-b border-[#3f7f7f7] pb-4 mt-5">
-                    مشخصات راننده و پرداخت
-                </h1>
+                <div className="border-b border-[#3f7f7f7] pb-4 mt-5">
+                    <h1 className="text-center font-artin-black text-2xl ">مشخصات کاربر</h1>
+                    <HiOutlineArrowRight onClick={onClickBackPgae} size={25} className="absolute right-4 top-6" />
+                </div>
                 <div className="layout">
-                    {/* <InfoUserProfile /> */}
+                    <InfoDriverProfile />
                     {/* type car */}
-                    <PlaqueTaxi />
-                    {true? (
+                    {!pathname.startsWith("/driver") && <PlaqueTaxi />}
+                    {driver?.CarRoute.Name === "چرخشی" ? (
                         <div className="mt-10">
                             <Input
                                 ltr
@@ -105,7 +121,7 @@ const InfoUser = () => {
                                 <p className="font-artin-bold">
                                     کرایه:{" "}
                                     <span className="font-artin-black text-xl text-orange_light mx-1">
-                                        {count * driver?.CarRoute.Cost!}
+                                        {(count * driver?.CarRoute.Cost!).toLocaleString()}
                                     </span>
                                     تومان
                                 </p>

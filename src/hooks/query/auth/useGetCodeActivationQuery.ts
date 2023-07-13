@@ -10,7 +10,7 @@ const useGetCodeActivationQuery = (phone: string) => {
         staleTime: 0,
         retry: 0,
         onSuccess: () => {
-            router.push(`/auth/user/auth/verifyotp/signup`);
+            router.push(`/auth/user/verifyotp/signup`);
         },
         onError: (error) => {
             // return errorToast((error as AxiosError<any>)?.response?.data.Message);

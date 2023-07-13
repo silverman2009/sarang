@@ -4,13 +4,13 @@ import { Html5Qrcode } from "html5-qrcode";
 import { useRouter } from "next/navigation";
 import { PaymentTypeEnum } from "@/helpers/utils/data";
 import useDriverStore from "@/stores/driver-store";
-interface Props{
-    facingMode: "environment" | "user"
+interface Props {
+    facingMode: "environment" | "user";
 }
 
 let html5QrCode: any;
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
-const Qr = ({facingMode}:Props) => {
+const Qr = ({ facingMode }: Props) => {
     const { code, setCode } = useDriverStore();
     const router = useRouter();
     const { setPaymentTypeEnum } = useDriverStore();

@@ -59,9 +59,11 @@ const InfoDriver = () => {
     return (
         <div className="min-h-screen bg-white flex flex-col justify-between gap-20">
             <div>
-                <h1 className="text-center font-artin-black text-2xl border-b border-[#3f7f7f7] pb-4 mt-5">
-                    مشخصات راننده و پرداخت
-                </h1>
+                <div>
+                    <h1 className="text-center font-artin-black text-2xl border-b border-[#3f7f7f7] pb-4 mt-5">
+                        مشخصات راننده و پرداخت
+                    </h1>
+                </div>
                 <div className="layout">
                     <InfoDriverProfile />
                     {/* type car */}

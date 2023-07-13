@@ -8,7 +8,7 @@ import React from "react";
 
 const InfoUser = () => {
     const { user } = useAuthStore();
-    const pathname = usePathname()
+    const pathname = usePathname();
     return (
         <>
             <div className="border-b border-gray-200 pb-5">
@@ -22,13 +22,12 @@ const InfoUser = () => {
                             <p className="font-artin-regular text-[#626262]">{toFarsiNumber(user?.Phone!)}</p>
                         </div>
                     </div>
-                    {
-                        !pathname.startsWith("/driver") &&
+                    {!pathname.startsWith("/driver") && (
                         <Link href="/profile/edit">
                             {" "}
                             <Edit_iocn />
                         </Link>
-                    }
+                    )}
                 </div>
                 <div className="flex items-center justify-between ">
                     <div className="flex items-center gap-2">

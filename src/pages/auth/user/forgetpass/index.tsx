@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
+import { useEffect } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import Logo from "@/assets/images/logo.svg";
 import { useFormik } from "formik";
@@ -12,7 +12,7 @@ import { toEnglishNumber } from "@/helpers/utils/toFarsiNumber";
 import { Warr_iocn } from "@/components/global/icons";
 
 const Forgetpass = () => {
-    const { mutate, isError, isSuccess, data, error } = useForgetPassMutation();
+    const { mutate, isError, isSuccess, data, error, isLoading } = useForgetPassMutation();
     const router = useRouter();
     const formik = useFormik({
         initialValues: {
@@ -21,9 +21,15 @@ const Forgetpass = () => {
         validationSchema: validationSchemaForgetPass,
         onSubmit: (values) => {
             mutate({ phone: toEnglishNumber(values.phone)! });
-            formik.resetForm();
         },
     });
+
+    useEffect(() => {
+        if (isSuccess) {
+            formik.resetForm();
+        }
+    }, [isSuccess]);
+
     return (
         <div className="bg-white min-h-screen flex flex-col justify-between">
             <div>
@@ -66,7 +72,12 @@ const Forgetpass = () => {
             )}
 
             <div className="layout mb-10">
-                <Button onClick={formik.handleSubmit} classBtn="bg-[#464646] text-white" name="درخواست کد بازیابی" />
+                <Button
+                    isLoading={isLoading}
+                    onClick={formik.handleSubmit}
+                    classBtn="bg-[#464646] text-white"
+                    name="درخواست کد بازیابی"
+                />
             </div>
         </div>
     );

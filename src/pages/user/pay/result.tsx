@@ -53,7 +53,11 @@ const Result = () => {
                     isView ? "-translate-x-1/2" : "translate-x-full"
                 }`}
             >
-                <Button onClick={() => router.push("/user")} classBtn="bg-[#464646] mb-10 text-white" name="بازگشت به صحفه اصلی" />
+                <Button
+                    onClick={() => router.push("/user")}
+                    classBtn="bg-[#464646] mb-10 text-white"
+                    name="بازگشت به صحفه اصلی"
+                />
             </div>
         </div>
     );

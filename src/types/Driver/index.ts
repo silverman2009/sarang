@@ -25,6 +25,12 @@ export type Driver = {
         Name: "چرخشی" | string;
         Cost: number;
     };
+
+    user: {
+        AuthId: string;
+        FirstName: string;
+        LastName: string;
+    };
 };
 
 export type TypePayment =

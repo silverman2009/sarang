@@ -9,7 +9,7 @@ const useSignupUserMutation = () => {
     const router = useRouter();
     return useMutation(async (data: SignupUser) => await signupUser(data), {
         onSuccess: async function ({}) {
-            router.push("/auth/user/auth/signin");
+            router.push("/auth/user/signin");
         },
         onError: async function (error) {
             errorToast((error as AxiosError<any>)?.response?.data.message);

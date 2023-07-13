@@ -7,7 +7,7 @@ const Driver = () => {
     return (
         <div>
             <ProfileInfo />
-            <Home/>
+            <Home />
             <MenuDriver />
         </div>
     );

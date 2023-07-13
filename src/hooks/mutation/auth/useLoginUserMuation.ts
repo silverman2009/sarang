@@ -8,10 +8,10 @@ const useLoginUserMuation = () => {
     const pathname = usePathname();
     return useMutation(async (data: LoginUser) => await loginUser(data), {
         onSuccess: async function ({}) {
-            if (pathname === "/auth/driver/auth/signin") {
-                router.push("/auth/driver/auth/verifyotp/login");
+            if (pathname === "/auth/driver/signin") {
+                router.push("/auth/driver/verifyotp/login");
             } else {
-                router.push("/auth/user/auth/verifyotp/login");
+                router.push("/auth/user/verifyotp/login");
             }
         },
         onError: async function (error) {},

@@ -5,6 +5,7 @@ export const AUTH = {
 
 export const DRIVER = {
     GETDRIVE_BY_CITYNUMBER: "get_drive_by_citynumber",
+    GETDRIVE_BY_PHONE: "get_drive_by_phone",
 };
 
 export const USER = {

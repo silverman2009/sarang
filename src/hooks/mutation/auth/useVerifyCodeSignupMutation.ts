@@ -9,7 +9,7 @@ const useVerifyCodeSignupMutation = () => {
 
     return useMutation(async (data: CheckCode) => await checkCodeSignup(data), {
         onSuccess: async function () {
-            router.push("/auth/signup");
+            router.push("/auth/user/signup");
         },
         onError: async function (error) {
             // errorToast((error as AxiosError<any>)?.response?.data.Message);
