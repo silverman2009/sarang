@@ -10,7 +10,7 @@ import Music from "@/assets/music/notfication.mp3";
 const useFarePaymentMutation = () => {
     const telegramAudioRef = useRef<HTMLAudioElement | undefined>(typeof Audio !== "undefined" ? new Audio(Music) : undefined);
     const router = useRouter();
-    return useMutation(async (data: Fare) => await farePayment(data), {
+    return useMutation(async (data: any) => await farePayment(data), {
         onSuccess: async function () {
             await telegramAudioRef.current?.play();
             router.push("/user/pay/result");

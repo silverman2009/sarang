@@ -23,12 +23,13 @@ const InfoUser = () => {
         initialValues: initialValuesFare,
         validationSchema: variantSchemaFare,
         onSubmit: (values) => {
-            const data = {
-                car: driver?.Car._id!,
-                paymentType: paymentTypeEnum,
-                amount: Number(values.amount),
-            };
-            mutate(data);
+                const dataUser = {
+                    customer: driver?.user.AuthId,
+                    amount: values.amount,
+                    paymentType: paymentTypeEnum,
+                };
+                mutate(dataUser)
+            
         },
     });
 
@@ -46,7 +47,7 @@ const InfoUser = () => {
             formik.handleSubmit();
         } else {
             const data = {
-                car: driver?.Car._id!,
+                customer: driver?.user.AuthId,
                 paymentType: paymentTypeEnum,
                 numberOfPassenger: Number(count),
             };

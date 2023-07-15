@@ -9,7 +9,7 @@ let html5QrCode: any;
 const qrConfig = { fps: 10, qrbox: { width: 300, height: 300 } };
 
 const Qr = () => {
-    const { code, setCode } = useDriverStore();
+    const { phone, setPhone } = useDriverStore();
     const router = useRouter();
     const { setPaymentTypeEnum } = useDriverStore();
 
@@ -18,21 +18,21 @@ const Qr = () => {
     }, []);
 
     const handleClickAdvanced = () => {
-        const qrCodeSuccessCallback = (decodedText: any) => {
+        const qrCodeSuccessCallback = () => {
             onResult();
             handleStop();
         };
-        html5QrCode.start({ facingMode: "environment" }, qrConfig, qrCodeSuccessCallback);
+        html5QrCode.start({ facingMode: "user" }, qrConfig, qrCodeSuccessCallback);
     };
 
     useEffect(() => {
-        if (code) {
-            router.push("/user");
+        if (phone) {
+            router.push("/driver");
             handleStop();
         } else {
             handleClickAdvanced();
         }
-    }, [code]);
+    }, [phone]);
 
     const handleStop = () => {
         try {
@@ -55,8 +55,8 @@ const Qr = () => {
     };
 
     const onResult = () => {
-        setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE);
-        setCode("23456");
+        setPaymentTypeEnum(PaymentTypeEnum.DRIVER_SCAN_USER_CARD);
+        setPhone("09052549406");
     };
     return (
         <div className="relative h-screen bg-[#00000043]">

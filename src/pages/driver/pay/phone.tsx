@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
 import ProfileInfo from "@/components/common/ProfileInfo";
@@ -26,6 +26,9 @@ const Code = () => {
             refetch();
         },
     });
+    useEffect(()=>{
+        setPhone("")
+    },[])
     return (
         <div className="h-screen flex flex-col justify-between bg-white">
             <div>

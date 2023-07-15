@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import React from "react";
 import Lottie from "lottie-react";
@@ -22,7 +21,7 @@ const Scan_qr = () => {
                     </div>
                 </div>
             ) : (
-                <QrCode facingMode="environment" />
+                <QrCode />
             )}
         </>
     );
