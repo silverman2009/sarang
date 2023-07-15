@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 import ScanJson from "@/assets/images/qr-code-scan.json";
 import Button from "@/components/common/Button";
 import useGetUserByPhoneQuery from "@/hooks/query/drivers/useGetUserByPhoneQuery";
-const QrCodeDriver = dynamic(() => import("../../../components/driver/Scan"), { ssr: false });
+const QrCodeDriver = dynamic(() => import("../../../../components/driver/Scan"), { ssr: false });
 const Scan = () => {
     const { isLoading } = useGetUserByPhoneQuery();
     return (

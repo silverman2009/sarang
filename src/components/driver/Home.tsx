@@ -12,13 +12,13 @@ const Home = () => {
                 <div className="layout ">
                     <div className="flex font-artin-regular h-[52px] gap-4">
                         <button
-                            onClick={() => router.push("/user/pay/qr")}
+                            onClick={() => router.push("/driver/pay/qr")}
                             className="flex-1 bg-orange_light rounded-lg text-white"
                         >
                             پرداخت با Qr
                         </button>
                         <button
-                            onClick={() => router.push("/driver/pay/phone")}
+                            onClick={() => router.push("/driver/pay/scan")}
                             className="flex-1 border border-[#cecece] rounded-lg"
                         >
                             پرداخت با نام کاربری
