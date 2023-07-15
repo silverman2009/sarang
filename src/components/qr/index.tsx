@@ -58,7 +58,7 @@ const Qr = ({ facingMode }: Props) => {
 
     const onResult = () => {
         setPaymentTypeEnum(PaymentTypeEnum.USER_SCAN_QR_CODE);
-        setCode("12345");
+        setCode("23456");
     };
     return (
         <div className="relative h-screen bg-[#00000043]">
